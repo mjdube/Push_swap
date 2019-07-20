@@ -3,40 +3,82 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anoroita <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mdube <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/28 08:18:54 by anoroita          #+#    #+#             */
-/*   Updated: 2018/06/08 08:52:18 by anoroita         ###   ########.fr       */
+/*   Created: 2019/05/31 11:48:08 by mdube             #+#    #+#             */
+/*   Updated: 2019/06/19 13:11:31 by mdube            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
+#include <string.h>
 
-char				**ft_strsplit(char const *s, char c)
+static int			ft_words(const char *s, char c)
 {
-	int				i;
-	int				j;
-	int				k;
-	char			**tab;
+	size_t			i;
+	int				num;
 
 	i = 0;
-	k = 0;
-	if (!(s))
-		return (NULL);
-	if (!(tab = (char **)malloc(sizeof(char *) * (ft_words(s, c)) + 1)))
+	num = 0;
+	if (s[i] != c)
+		num++;
+	while (s[i])
+	{
+		if (s[i] == c && s[i + 1] != c && s[i + 1] != '\0')
+			num++;
+		i++;
+	}
+	return (num);
+}
+
+static	int			ft_len(const char *s, char c)
+{
+	int				i;
+
+	i = 0;
+	while (s[i] && s[i] != c)
+		i++;
+	return (i);
+}
+
+static char			**ft_split(char const *s, char c, size_t i, size_t row)
+{
+	size_t			col;
+	char			**a;
+
+	if (!(a = (char**)malloc(sizeof(char*) * ft_words(s, c) + 1)))
 		return (NULL);
 	while (s[i])
 	{
-		while (s[i] == c)
+		if (s[i] == c)
 			i++;
-		j = i;
-		while (s[i] && s[i] != c)
-			i++;
-		if (i > j)
+		else
 		{
-			tab[k++] = ft_strndup(s + j, i - j);
+			col = 0;
+			if (!(a[row] = (char*)malloc(sizeof(char) * ft_len(&s[i], c) + 1)))
+				return (NULL);
+			else
+			{
+				while (s[i] && s[i] != c)
+					a[row][col++] = s[i++];
+				a[row][col] = '\0';
+				row++;
+			}
 		}
 	}
-	tab[k] = NULL;
-	return (tab);
+	a[row] = 0;
+	return (a);
+}
+
+char				**ft_strsplit(char const *s, char c)
+{
+	size_t			i;
+	size_t			j;
+
+	i = 0;
+	j = 0;
+	if (!s)
+		return (NULL);
+	return (ft_split(s, c, i, j));
 }

@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrev.c                                        :+:      :+:    :+:   */
+/*   check.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anoroita <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mdube <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/14 07:28:51 by anoroita          #+#    #+#             */
-/*   Updated: 2018/06/14 07:29:16 by anoroita         ###   ########.fr       */
+/*   Created: 2019/07/20 14:39:18 by mdube             #+#    #+#             */
+/*   Updated: 2019/07/20 14:45:18 by mdube            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef CHECK_H
+# define CHECK_H
 
-char		*ft_strrev(char *str)
+typedef struct node
 {
-	int		i;
-	int		l;
-	char	t;
+	int data;
+	struct node *next;
+}block;
 
-	l = 0;
-	while (str[l] != '\0')
-		l++;
-	i = -1;
-	while (++i < --l)
-	{
-		t = str[i];
-		str[i] = str[l];
-		str[l] = t;
-	}
-	return (str);
-}
+block		*createNode(void);
+#endif

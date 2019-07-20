@@ -3,35 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anoroita <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mdube <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/22 15:06:18 by anoroita          #+#    #+#             */
-/*   Updated: 2018/06/15 07:42:35 by anoroita         ###   ########.fr       */
+/*   Created: 2019/05/22 11:21:53 by mdube             #+#    #+#             */
+/*   Updated: 2019/06/19 12:39:41 by mdube            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <string.h>
 
-char	*ft_strstr(const char *str, const char *to_find)
+char				*ft_strstr(const char *hay, const char *needle)
 {
-	int i;
-	int j;
+	unsigned int	j;
+	unsigned int	i;
 
-	if (to_find[0] == '\0')
-		return ((char *)str);
-	i = 0;
-	while (str[i] != '\0')
+	if (!*needle)
+		return ((char *)hay);
+	j = 0;
+	while (hay[j] != '\0')
 	{
-		j = 0;
-		while (to_find[j] != '\0')
+		if (hay[j] == needle[0])
 		{
-			if (str[i + j] != to_find[j])
-				break ;
-			j++;
+			i = 0;
+			while (needle[i] != '\0' && hay[j + i] == needle[i])
+				++i;
+			if (needle[i] == '\0')
+				return ((char *)&hay[j]);
 		}
-		if (to_find[j] == '\0')
-			return ((char *)str + i);
-		i++;
+		++j;
 	}
 	return (0);
 }

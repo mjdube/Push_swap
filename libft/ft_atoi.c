@@ -3,41 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anoroita <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mdube <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/22 08:59:49 by anoroita          #+#    #+#             */
-/*   Updated: 2018/06/05 12:22:57 by anoroita         ###   ########.fr       */
+/*   Created: 2019/05/27 10:26:27 by mdube             #+#    #+#             */
+/*   Updated: 2019/06/19 09:16:10 by mdube            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	reatoi(int n)
+int						ft_atoi(const char *str)
 {
-	if (n == -1)
-		return (0);
-	return (-1);
-}
+	int					i;
+	unsigned long long	j;
+	int					neg;
 
-int			ft_atoi(const char *str)
-{
-	int	n;
-	int	a;
-	int	sign;
-
-	n = 0;
-	a = 0;
-	sign = 1;
-	while (*str == 32 || (*str >= 9 && *str <= 13))
-		++str;
-	if (*str == '+' || *str == '-')
-		sign = (*str++ == '-') ? -1 : 1;
-	while (*str >= '0' && *str <= '9')
+	neg = 1;
+	i = 0;
+	j = 0;
+	while (*str && ft_isspace(*str) && ++i)
+		str++;
+	if (*str == '-' || *str == '+')
 	{
-		n = n * 10 + (*str++ - '0');
-		if (a > 18)
-			return (reatoi(sign));
-		a++;
+		if (*str == '-')
+			neg = -1;
+		str++;
+		i++;
 	}
-	return (n * sign);
+	while (*str && *str >= '0' && *str <= '9')
+	{
+		j = j * 10 + (*str - 48);
+		str++;
+		i++;
+	}
+	if (i > 19 || j >= 9223372036854775808ULL)
+		return (neg == 1 ? -1 : 0);
+	return (j * neg);
 }

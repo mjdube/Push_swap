@@ -3,38 +3,54 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anoroita <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mdube <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/28 10:45:38 by anoroita          #+#    #+#             */
-/*   Updated: 2018/06/14 07:41:18 by anoroita         ###   ########.fr       */
+/*   Created: 2019/06/18 09:41:48 by mdube             #+#    #+#             */
+/*   Updated: 2019/06/19 09:15:57 by mdube            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
+#include <string.h>
 
-char			*ft_itoa(int n)
+static int			getnb_size(unsigned int nb)
 {
-	size_t	i;
-	size_t	n_size;
-	char	*str;
+	unsigned int	size;
 
-	i = 0;
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
-	n_size = ft_nbrlen(n);
-	if (!(str = (char *)malloc(sizeof(char) * (n_size + 1))))
-		return (NULL);
-	str[n_size] = 0;
+	size = 0;
+	while (nb >= 10)
+	{
+		nb /= 10;
+		++size;
+	}
+	return (size + 1);
+}
+
+char				*ft_itoa(int n)
+{
+	char			*str;
+	unsigned int	nb;
+	unsigned int	index;
+	unsigned int	size;
+
 	if (n < 0)
+		nb = (unsigned int)(n * -1);
+	else
+		nb = (unsigned int)n;
+	size = (unsigned int)getnb_size(nb);
+	index = 0;
+	if (!(str = (char*)malloc(sizeof(char) * (size + 1 + (n < 0 ? 1 : 0)))))
+		return (0);
+	if (n < 0 && (str[index] = '-'))
+		size++;
+	index = size - 1;
+	while (nb >= 10)
 	{
-		str[0] = '-';
-		n *= -1;
-		i += 1;
+		str[index--] = (char)(nb % 10 + 48);
+		nb /= 10;
 	}
-	while (i < n_size--)
-	{
-		str[n_size] = (n % 10) + '0';
-		n /= 10;
-	}
+	str[index] = (char)(nb % 10 + 48);
+	str[size] = '\0';
 	return (str);
 }

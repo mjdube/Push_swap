@@ -1,20 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd.c                                        :+:      :+:    :+:   */
+/*   swap_data.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anoroita <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mdube <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/08 10:19:11 by anoroita          #+#    #+#             */
-/*   Updated: 2018/06/08 10:38:45 by anoroita         ###   ########.fr       */
+/*   Created: 2019/07/20 15:56:39 by mdube             #+#    #+#             */
+/*   Updated: 2019/07/20 16:56:14 by mdube            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_lstadd(t_list **alst, t_list *new)
+void		search_data(block *head)
 {
-	if (*alst != NULL)
-		new->next = *alst;
-	*alst = new;
+	int		i;
+	block	*temp1;
+	block	*temp2;
+
+	temp1 = head;
+	temp2 = head;
+	i = 1;
+	while (i <= 1)
+	{
+		temp1 = temp1->next;
+		i++;
+	}
+	i = 1;
+	while (i <= 2)
+	{
+		temp2 = temp2->next;
+		i++;
+	}
 }
+
+

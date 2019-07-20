@@ -3,40 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anoroita <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mdube <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/24 14:55:43 by anoroita          #+#    #+#             */
-/*   Updated: 2018/05/31 12:38:47 by anoroita         ###   ########.fr       */
+/*   Created: 2019/05/30 17:18:13 by mdube             #+#    #+#             */
+/*   Updated: 2019/06/12 17:01:06 by mdube            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
+#include <string.h>
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char		*ft_strjoin(const char *s1, const char *s2)
 {
-	size_t	i;
-	size_t	j;
-	size_t	sum;
-	char	*d;
+	char	*result;
+	size_t	size;
 
-	i = 0;
-	j = 0;
-	if (!(s1 && s2))
-		return (0);
-	sum = ft_strlen((char *)s1) + ft_strlen((char *)s2);
-	if (!(d = (char *)malloc(sizeof(char) * sum + 1)))
-		return (0);
-	while (s1[i])
-	{
-		d[i] = s1[i];
-		i++;
-	}
-	while (s2[j])
-	{
-		d[i] = s2[j];
-		i++;
-		j++;
-	}
-	d[i] = '\0';
-	return (d);
+	if (s1 && s2)
+		size = ft_strlen(s1) + ft_strlen(s2);
+	else if (s1)
+		size = ft_strlen(s1);
+	else if (s2)
+		size = ft_strlen(s2);
+	else
+		return (NULL);
+	if (!(result = (char *)ft_memalloc(size)))
+		return (NULL);
+	if (s1)
+		result = ft_strcpy(result, (char *)s1);
+	else
+		result = ft_strcpy(result, (char *)s2);
+	if (s1 && s2)
+		result = ft_strcat(result, (char *)s2);
+	return (result);
 }

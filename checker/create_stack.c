@@ -1,32 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   create_stack.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdube <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/21 16:42:08 by mdube             #+#    #+#             */
-/*   Updated: 2019/06/19 12:15:59 by mdube            ###   ########.fr       */
+/*   Created: 2019/07/20 11:52:04 by mdube             #+#    #+#             */
+/*   Updated: 2019/07/20 13:58:13 by mdube            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft/libft.h"
 #include <string.h>
 
-char				*ft_strncat(char *s1, const char *s2, size_t n)
+block			*create_stack(int argc, char *argv)
 {
-	unsigned int	i;
-	unsigned int	j;
+	int		i;
+	block	*head;
+	block	*node;
+	block	*temp;
 
-	i = 0;
-	while (s1[i])
-		i++;
-	j = 0;
-	while (s2[j] != '\0' && j < n)
+	temp = NULL;
+	head = NULL;
+	node = NULL;
+	i = 1;
+	node = createNode();
+	node->data = ft_atoi(argv[i]);
+	head = node;
+	while (++i < argc)
 	{
-		s1[i + j] = s2[j];
-		j++;
+		temp = createNode();
+		temp->data = ft_atoi(argv[i]);
+		node->next = temp;
+		node = node->next;
 	}
-	s1[i + j] = '\0';
-	return (s1);
+	return (head)
 }

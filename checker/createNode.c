@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_words.c                                   :+:      :+:    :+:   */
+/*   createNode.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anoroita <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mdube <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/05 12:28:15 by anoroita          #+#    #+#             */
-/*   Updated: 2018/06/15 09:46:50 by anoroita         ###   ########.fr       */
+/*   Created: 2019/07/20 11:57:20 by mdube             #+#    #+#             */
+/*   Updated: 2019/07/20 14:38:29 by mdube            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft/libft.h"
 
-int		ft_words(char const *s, char c)
+block		*createNode(void)
 {
-	unsigned	int	i;
-	int				cntr;
+	block	*node;
 
-	i = 0;
-	cntr = 0;
-	while (s[i])
-	{
-		while (s[i] == c)
-			i++;
-		if (s[i] != '\0')
-			cntr++;
-		while (s[i] && (s[i] != c))
-			i++;
-	}
-	return (cntr);
+	node = (block*)ft_memalloc(block);
+	node->data = NULL;
+	node->next = NULL;
+	return (node);
 }
