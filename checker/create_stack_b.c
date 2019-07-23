@@ -1,41 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_stack.c                                     :+:      :+:    :+:   */
+/*   create_stack_b.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdube <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/20 11:52:04 by mdube             #+#    #+#             */
-/*   Updated: 2019/07/23 15:28:39 by mdube            ###   ########.fr       */
+/*   Created: 2019/07/23 15:52:19 by mdube             #+#    #+#             */
+/*   Updated: 2019/07/23 17:59:18 by mdube            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
 #include "check.h"
-#include <string.h>
 
-block			*create_stack(int NumNodes, char *nums)
+block			*create_stack_b(block *node)
 {
-	int		i;
-	const char **nodes;
-	block	*head;
-	block	*node;
-	block	*temp;
+	block		*temp;
+	block		*head;
 
-	temp = NULL;
 	head = NULL;
-	node = NULL;
-	nodes = (const char *)nums;
-	i = 1;
-	node = createNode();
-	node->data = ft_atoi(*(&nodes[i]));
-	head = node;
-	while (++i <= NumNodes)
+	temp = node;
+	if (head == NULL)
 	{
-		temp = createNode();
-		temp->data = ft_atoi(*(&nodes[i]);
-		node->next = temp;
-		node = node->next;
+
 	}
-	return (head);
 }
