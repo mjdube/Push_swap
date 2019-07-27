@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_stack_b.c                                   :+:      :+:    :+:   */
+/*   create_stack_a.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdube <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/23 15:52:19 by mdube             #+#    #+#             */
-/*   Updated: 2019/07/27 13:11:34 by mdube            ###   ########.fr       */
+/*   Created: 2019/07/26 14:29:32 by mdube             #+#    #+#             */
+/*   Updated: 2019/07/27 13:07:09 by mdube            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "check.h"
+#include "../check.h"
 
-block			*create_stack_b(int num)
+block		*create_stack_a(block *stack)
 {
-	block		*temp;
-	block		*node;
-	block		*head;
+	block	*head;
 
-	head = NULL;
-	temp = NULL;
-	node = NULL;
-	node = createNode();
-	if (head == NULL)
-	{
-		node->data = num;
-		head = node;
-	}
+	if (!stack)
+		return (NULL);
+	head = stack;
+	return (head);
 }

@@ -6,7 +6,7 @@
 /*   By: mdube <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/20 14:39:18 by mdube             #+#    #+#             */
-/*   Updated: 2019/07/22 11:28:31 by mdube            ###   ########.fr       */
+/*   Updated: 2019/07/27 13:08:54 by mdube            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,5 @@ typedef	struct	node
 
 block		*createNode(void);
 block		*create_stack(int NumNodes, char *nums);
-
+int			list_length(block *head);
 #endif
