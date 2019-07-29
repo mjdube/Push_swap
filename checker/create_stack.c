@@ -6,7 +6,7 @@
 /*   By: mdube <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/20 11:52:04 by mdube             #+#    #+#             */
-/*   Updated: 2019/07/23 15:28:39 by mdube            ###   ########.fr       */
+/*   Updated: 2019/07/29 16:50:18 by mdube            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ block			*create_stack(int NumNodes, char *nums)
 	node = createNode();
 	node->data = ft_atoi(*(&nodes[i]));
 	head = node;
-	while (++i <= NumNodes)
+	while (--NumNodes)
 	{
 		temp = createNode();
-		temp->data = ft_atoi(*(&nodes[i]);
+		temp->data = ft_atoi(*(&nodes[++i]);
 		node->next = temp;
 		node = node->next;
 	}

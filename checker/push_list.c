@@ -5,18 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdube <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/26 12:28:10 by mdube             #+#    #+#             */
-/*   Updated: 2019/07/27 17:09:21 by mdube            ###   ########.fr       */
+/*   Created: 2019/07/29 17:33:38 by mdube             #+#    #+#             */
+/*   Updated: 2019/07/29 18:20:19 by mdube            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "check.h"
 
-block			*push_list(block *head)
+block		*push_list(block *stack)
 {
-	block *previous;
+	block *list;
 
-	previous = head;
-	head = head->next;
-	return (previous);
+	stack = stack-next;
+	list = stack;
+	return (list);
 }

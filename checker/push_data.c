@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_stack_b.c                                   :+:      :+:    :+:   */
+/*   push_data.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdube <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/23 15:52:19 by mdube             #+#    #+#             */
-/*   Updated: 2019/07/29 18:15:15 by mdube            ###   ########.fr       */
+/*   Created: 2019/07/29 17:31:21 by mdube             #+#    #+#             */
+/*   Updated: 2019/07/29 18:20:14 by mdube            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "check.h"
 
-block			*create_stack_b(block *stack, int data)
+int			push_data(block *stack)
 {
-	block		*head;
+	int data;
 
-	if (!data)
-		return (stack);
-	head
+	data = stack->data;
+	return (data);
+}
