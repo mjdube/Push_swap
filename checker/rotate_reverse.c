@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate_normal.c                                    :+:      :+:    :+:   */
+/*   rotate_reverse.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdube <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/27 12:54:07 by mdube             #+#    #+#             */
-/*   Updated: 2019/07/29 13:14:40 by mdube            ###   ########.fr       */
+/*   Created: 2019/08/03 05:48:40 by mdube             #+#    #+#             */
+/*   Updated: 2019/08/03 05:57:46 by mdube            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "check.h"
 
-void			rotate_normal(block *head)
+void		rotate_reverse(block *stack)
 {
-	int		temp;
-	int		len;
-	block	*previous;
+	block *previous;
+	int temp;
 
-	len = list_length(head);
-	while (len--)
+	previous = stack;
+	while (stack->next!= NULL)
 	{
-		previous = head;
-		temp = head->data;
-		head = head->next;
-		previous->data = head->data;
-		head->data = temp;
+		stack = stack->next;
+		temp = stack->data;
+		stack->data = previous->data;
+		previous->data = temp;
 	}
 }

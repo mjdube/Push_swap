@@ -6,7 +6,7 @@
 /*   By: mdube <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/08 17:17:12 by mdube             #+#    #+#             */
-/*   Updated: 2019/07/29 18:18:55 by mdube            ###   ########.fr       */
+/*   Updated: 2019/08/03 11:44:45 by mdube            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,54 @@ int		isValid(char *str)
 		return (0);
 }
 
-int		main(int argc, char **argv)
+int		checking_numbers(char **str)
 {
+	int i;
+	int j;
 
+	i = 1;
+	while (str[i])
+	{
+		j = 0;
+		while (str[i][j])
+		{
+			if (ft_isalpha(str[i][j]) == 1)
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	return (1);
+}
+
+int		main(int argc, char *argv[])
+{
+	if (argc > 1)
+	{
+		block *thestack;
+		block *stack_a;
+		block *stack_b;
+
+		stack_a = NULL;
+		stack_b = NULL;
+		if (checking_numbers(argv) == 1)
+		{
+			thestack = create_stack(argc, argv);
+			stack_a = create_stack_a(stack_a, );
+		}
+		else
+		{
+			ft_putstr("ERROR\n");
+			return (0);
+		}
+		while ((ret = read(0, buf, 4)) > 0)
+		{
+			if (ft_strcmp(buf, "sa") == 1)
+			{
+				swap_data(stack);
+
+			}
+		}
+	}
 	return (0);
 }
