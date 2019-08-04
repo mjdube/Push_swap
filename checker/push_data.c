@@ -12,10 +12,12 @@
 
 #include "check.h"
 
-int			push_data(block *stack)
+int			push_data(block *stack, int num)
 {
-	int data;
+	block *begin;
 
-	data = stack->data;
-	return (data);
+	begin = createNode();
+	begin->data = num;
+	begin->next = stack;
+	return (begin);
 }
