@@ -12,7 +12,7 @@
 
 #include "check.h"
 
-int			push_data(block *stack, int num)
+block			*push_data(block *stack, int num)
 {
 	block *begin;
 

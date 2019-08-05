@@ -14,9 +14,10 @@
 
 block		*push_list(block *stack)
 {
-	block *list;
+	block *previous;
 
-	stack = stack-next;
-	list = stack;
-	return (list);
+	previous = stack;
+	stack = stack->next;
+	free(previous);
+	return (stack);
 }

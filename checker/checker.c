@@ -76,7 +76,6 @@ int		main(int argc, char *argv[])
 		if (checking_numbers(argv) == 1)
 		{
 			thestack = create_stack(argc, argv);
-			stack_a = create_stack_a(stack_a, );
 		}
 		else
 		{
@@ -88,7 +87,6 @@ int		main(int argc, char *argv[])
 			if (ft_strcmp(buf, "sa") == 1)
 			{
 				swap_data(stack);
-
 			}
 		}
 	}

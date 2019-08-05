@@ -12,14 +12,7 @@
 
 #include "../check.h"
 
-block		*create_stack_a(block *stack, int data)
+block		*create_stack_a(block *stack)
 {
-	block	*head;
-
-	if (!data)
-		return (stack);
-	head = createNode();
-	head->data = data;
-	head->next = stack;
-	return (head);
+	return (stack);
 }
