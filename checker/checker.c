@@ -76,6 +76,33 @@ int		main(int argc, char *argv[])
 		if (checking_numbers(argv) == 1)
 		{
 			thestack = create_stack(argc, argv);
+			while (get_next_line(0, &line) == 1)
+			{
+				if (stack_a == NULL && stack_b == NULL)
+					stack_a = create_stack_a(thestack);
+				else if (ft_strequ("sa", line))
+					swap_data(stack_a);
+				else if (ft_strequ("sb", line))
+					swap_data(stack_b);
+				else if (ft_strequ("ss", line))
+				{
+					swap_data(stack_a);
+					swap_data(stack_b);
+				}
+				else if (ft_strequ("ra", line))
+					rotate_normal(stack_a);
+				else if (ft_strequ("rb", line))
+					rotate_normal(stack_b);
+				else if (ft_strequ("rr", line))
+				{
+					rotate_normal(stack_a);
+					rotate_normal(stack_b);
+				}
+				else if (ft_strequ("rra", line))
+					rotate_reverse(stack_a);
+				else if (ft_strequ("rrb", line))
+					rotate_reverse(stack_b);
+			}
 		}
 		else
 		{
