@@ -17,7 +17,7 @@
 block			*create_stack(int argc, char **argv)
 {
 	int		i;
-	const char **nodes;
+	const char **numbers;
 	block	*head;
 	block	*node;
 	block	*temp;
@@ -25,15 +25,15 @@ block			*create_stack(int argc, char **argv)
 	temp = NULL;
 	head = NULL;
 	node = NULL;
-	nodes = (const char **)argv;
+	numbers = (const char **)argv;
 	i = 1;
 	node = createNode();
-	node->data = ft_atoi(nodes[i]);
+	node->data = ft_atoi(numbers[i++]);
 	head = node;
-	while (--argc > 0)
+	while (--argc > 1)
 	{
 		temp = createNode();
-		temp->data = ft_atoi(nodes[++i]);
+		temp->data = ft_atoi(numbers[i++]);
 		node->next = temp;
 		node = node->next;
 	}

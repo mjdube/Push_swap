@@ -12,7 +12,37 @@
 
 #include "check.h"
 
-block			*create_stack_b(block *stack)
+block		*create_stack_b(block *stack)
 {
-	return (stack);
+	int len;
+	block *head;
+	block *node;
+	block *temp;
+
+	head = NULL;
+	len = list_length(stack);
+	if (len == 1)
+	{
+		head = createNode();
+		head->data = stack->data;
+		return (head);
+	}
+	else if (len == 0)
+		return (NULL);
+	if (head == NULL)
+	{
+		node = createNode();
+		node->data = stack->data;
+		head = node;
+		stack = stack->next;
+	}
+	while (stack)
+	{
+		temp = createNode();
+		temp->data = stack->data;
+		node->next = temp;
+		node = node->next;
+		stack = stack->next;
+	}
+	return (head);
 }

@@ -19,6 +19,8 @@ void			rotate_normal(block *head)
 	block	*previous;
 
 	len = list_length(head);
+	if (len < 1)
+		return ;
 	while (len--)
 	{
 		previous = head;

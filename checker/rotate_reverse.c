@@ -15,8 +15,12 @@
 void		rotate_reverse(block *stack)
 {
 	block *previous;
+	int len;
 	int temp;
 
+	len = list_length(stack);
+	if (len < 1)
+		return ;
 	previous = stack;
 	while (stack->next!= NULL)
 	{

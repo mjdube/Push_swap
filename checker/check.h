@@ -20,8 +20,16 @@ typedef struct node
 	struct node *next;
 }block;
 
+block		*create_stack_a(block *stack);
 block		*createNode(void);
 block		*create_stack(int argc, char **argv);
-int			list_length(block *head);
+block		*push_to_stack(int number, block *stack);
 
+int		pop_number(block *stack);
+int		list_length(block *head);
+
+void		swap_data(block *head);
+void		rotate_normal(block *stack);
+void		rotate_reverse(block *stack);
+block		*push_list(block *stack);
 #endif

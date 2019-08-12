@@ -15,13 +15,17 @@
 void		swap_data(block *head)
 {
 	int		temp;
+	int		len;
 	block	*temp1;
 	block	*temp2;
 
+	len = list_length(head);
+	if (len < 1)
+		return ;
 	temp1 = head;
 	temp2 = head;
 	temp2 = temp2->next;
-	temp = temp1.data;
-	temp1.data = temp2.data;
-	temp2.data = temp;
+	temp = temp1->data;
+	temp1->data = temp2->data;
+	temp2->data = temp;
 }
