@@ -15,7 +15,7 @@
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
-
+# define BUFF_SIZE 16
 int				ft_isalpha(int c);
 int				ft_isalnum(int c);
 int				ft_isdigit(int c);
@@ -78,4 +78,6 @@ int				ft_toupper(int c);
 int				ft_isspace(int c);
 
 int				ft_abs(int x);
+// GET NEXT LINE FUNCTION
+int			get_next_line(const int fd, char **line);
 #endif
