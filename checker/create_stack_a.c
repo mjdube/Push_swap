@@ -27,7 +27,7 @@ block		*create_stack_a(block *stack)
 		head->data = stack->data;
 		return (head);
 	}
-	else if (len == 0)
+	else if (len == 0 || stack == NULL)
 		return (NULL);
 	if (head == NULL)
 	{

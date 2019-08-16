@@ -17,7 +17,7 @@ int			list_length(block *head)
 	int i;
 
 	i = 0;
-	while (head->next != NULL)
+	while (head)
 	{
 		head = head->next;
 		i++;
