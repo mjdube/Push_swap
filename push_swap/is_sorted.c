@@ -1,16 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   is_sorted.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdube <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/23 15:22:46 by mdube             #+#    #+#             */
-/*   Updated: 2019/06/23 15:25:23 by mdube            ###   ########.fr       */
+/*   Created: 2019/08/16 13:54:36 by mdube             #+#    #+#             */
+/*   Updated: 2019/08/16 14:34:05 by mdube            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void		*ft_lstdelone()
+#include "checker/check.h"
+#include "push_swap/push_swap.h"
+
+int		is_sorted(block *stack)
 {
-	
+	block *lst;
+
+	lst = stack;
+	while (lst)
+	{
+		if (compare(lst->data, lst->next->data) == 0)
+			lst = lst->next;
+		else
+			return (0);
+	}
+	return (1);
 }

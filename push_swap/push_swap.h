@@ -1,34 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdube <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/23 13:11:26 by mdube             #+#    #+#             */
-/*   Updated: 2019/06/23 16:22:22 by mdube            ###   ########.fr       */
+/*   Created: 2019/08/16 12:37:23 by mdube             #+#    #+#             */
+/*   Updated: 2019/08/16 18:28:00 by mdube            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <string.h>
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-t_list		*ft_lstnew(void const *content, size_t content_size)
-{
-	t_list *fresh;
+#include "../checker/check.h"
 
-	if (!(fresh = (t_list *)ft_memalloc(sizeof(t_list))))
-		return (NULL);
-	if (!content)
-	{
-		fresh->content = NULL;
-		fresh->content_size = 0;
-	}
-	else
-	{
-		fresh->content = (void *)content;
-		fresh->content_size = content_size;
-	}
-	fresh->next = NULL;
-	return (fresh);
-}
+int			compare(int num1, int num2);
+int			is_sorted(block *stack);
+
+#endif
