@@ -6,7 +6,7 @@
 /*   By: mdube <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/08 17:17:12 by mdube             #+#    #+#             */
-/*   Updated: 2019/08/17 18:05:19 by mdube            ###   ########.fr       */
+/*   Updated: 2019/08/17 14:18:18 by mdube            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,12 @@ int		main(int argc, char **argv)
 {
 	if (argc > 1)
 	{
-		int		a;
-		int		b;
-		block	*thestack;
-		block	*stack_a;
-		block	*stack_b;
-		char	*line;
+		int a;
+		block *thestack;
+		block *stack_a;
+		block *stack_b;
+		char *line;
+		int len;
 		
 		stack_a = NULL;
 		stack_b = NULL;
@@ -78,11 +78,6 @@ int		main(int argc, char **argv)
 					rotate_reverse(stack_a);
 				else if (ft_strequ("rrb", (const char*)line))
 					rotate_reverse(stack_b);
-				else if (ft_strequ("rrr", (const char*)line))
-				{
-					rotate_reverse(stack_a);
-					rotate_reverse(stack_b);
-				}
 				else if (ft_strequ("pa", (const char*)line))
 				{
 					push(a, stack_b, stack_a);
@@ -92,13 +87,15 @@ int		main(int argc, char **argv)
 				}
 				else if (ft_strequ("pb", (const char*)line))
 				{
-					push(b, stack_a, stack_b);
+					push(a, stack_a, stack_b);
 					//b = pop_number(stack_a);
 					//stack_b = push_to_stack(b, stack_b);
 					//stack_a = push_list(stack_a);
 				}
 				else if(ft_strequ("done", (const char *)line) || ft_strequ("DONE", (const char*)line))
+				{
 					break ;
+				}
 			}
 		}
 		else
@@ -106,7 +103,8 @@ int		main(int argc, char **argv)
 			ft_putstr("ERROR\n");
 			return (0);
 		}
-		if (list_length(stack_b) > 0)
+		len = list_length(stack_b);
+		if (len > 0)
 			ft_putstr("KO");
 		else
 			ft_putstr("OK");

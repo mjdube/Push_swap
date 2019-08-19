@@ -6,7 +6,7 @@
 /*   By: mdube <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/20 14:39:18 by mdube             #+#    #+#             */
-/*   Updated: 2019/08/03 08:37:45 by mdube            ###   ########.fr       */
+/*   Updated: 2019/08/17 14:24:23 by mdube            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ block		*create_stack_a(block *stack);
 block		*createNode(void);
 block		*create_stack(int argc, char **argv);
 block		*push_to_stack(int number, block *stack);
+block		*push_list(block *stack);
 
 int		pop_number(block *stack);
 int		list_length(block *head);
@@ -31,5 +32,5 @@ int		list_length(block *head);
 void		swap_data(block *head);
 void		rotate_normal(block *stack);
 void		rotate_reverse(block *stack);
-block		*push_list(block *stack);
+void		push(int num, block *list1, block *list2);
 #endif

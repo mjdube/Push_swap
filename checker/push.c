@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_to_stack.c                                    :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdube <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/13 16:45:22 by mdube             #+#    #+#             */
-/*   Updated: 2019/08/17 13:59:51 by mdube            ###   ########.fr       */
+/*   Created: 2019/08/17 14:01:12 by mdube             #+#    #+#             */
+/*   Updated: 2019/08/17 14:21:24 by mdube            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "check.h"
 
-block		*push_to_stack(int number, block *stack)
+void			push(int num, block *lstsrc, block *lstdst)
 {
-	block	*temp;
-	if (stack == NULL)
-	{
-		temp = createNode();
-		temp->data = number;
-		return (temp);
-	}
-	temp = createNode();
-	temp->data = number;
-	temp->next = stack;
-	return (temp);
+	num = pop_number(lstsrc);
+	lstdst = push_to_stack(num, lstdst);
+	lstsrc = push_list(lstsrc);
 }
+
+// Pops lstsrc number on top and then pushes it on top of lstdst
