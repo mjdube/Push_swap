@@ -6,7 +6,7 @@
 /*   By: mdube <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/08 17:17:12 by mdube             #+#    #+#             */
-/*   Updated: 2019/08/17 14:18:18 by mdube            ###   ########.fr       */
+/*   Updated: 2019/08/20 16:38:17 by mdube            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 #include <string.h>
 #include <stdlib.h>
 
-int		checking_numbers(char **str)
+int				checking_numbers(char **str)
 {
-	int i;
-	int j;
+	int			i;
+	int			j;
 
 	i = 1;
 	while (str[i])
@@ -35,66 +35,39 @@ int		checking_numbers(char **str)
 	return (1);
 }
 
-int		main(int argc, char **argv)
+int				main(int argc, char **argv)
 {
+	int			number;
+	char		*line;
+	block		*stack_a;
+	block		*stack_b;
+	
 	if (argc > 1)
 	{
-		int a;
-		block *thestack;
-		block *stack_a;
-		block *stack_b;
-		char *line;
-		int len;
-		
 		stack_a = NULL;
 		stack_b = NULL;
-		thestack = NULL;
 		if (checking_numbers(argv) == 1)
 		{
-			thestack = create_stack(argc, argv);
-			if (stack_a == NULL && stack_b == NULL)
-					stack_a = create_stack_a(thestack);
+			stack_a = create_stack(argc, argv);
 			while (get_next_line(0, &line) == 1)
 			{
-				if (ft_strequ("sa", (const char*)line))
-					swap_data(stack_a);
-				else if (ft_strequ("sb", (const char*)line))
-					swap_data(stack_b);
-				else if (ft_strequ("ss", (const char*)line))
-				{
-					swap_data(stack_a);
-					swap_data(stack_b);
-				}
-				else if (ft_strequ("ra", (const char*)line))
-					rotate_normal(stack_a);
-				else if (ft_strequ("rb", (const char*)line))
-					rotate_normal(stack_b);
-				else if (ft_strequ("rr", (const char*)line))
-				{
-					rotate_normal(stack_a);
-					rotate_normal(stack_b);
-				}
-				else if (ft_strequ("rra", (const char*)line))
-					rotate_reverse(stack_a);
-				else if (ft_strequ("rrb", (const char*)line))
-					rotate_reverse(stack_b);
+				/*if (is_verify(line))
+					ft_instr(stack_a, is_verify(line));
+				else if ()
+					ft_instr(stack_b, is_verify(line));
+				else if ()
+					ft_instr_both(stack_a, stack_b, is_verify(line));*/
 				else if (ft_strequ("pa", (const char*)line))
 				{
-					push(a, stack_b, stack_a);
-					//a = pop_number(stack_b);
-					//stack_a = push_to_stack(a, stack_a);
-					//stack_b = push_list(stack_b);
+					number = pop_number(stack_b);
+					stack_a = push_to_stack(number, stack_a);
+					stack_b = push_list(stack_b);
 				}
 				else if (ft_strequ("pb", (const char*)line))
 				{
-					push(a, stack_a, stack_b);
-					//b = pop_number(stack_a);
-					//stack_b = push_to_stack(b, stack_b);
-					//stack_a = push_list(stack_a);
-				}
-				else if(ft_strequ("done", (const char *)line) || ft_strequ("DONE", (const char*)line))
-				{
-					break ;
+					number = pop_number(stack_a);
+					stack_b = push_to_stack(number, stack_b);
+					stack_a = push_list(stack_a);
 				}
 			}
 		}
@@ -103,12 +76,7 @@ int		main(int argc, char **argv)
 			ft_putstr("ERROR\n");
 			return (0);
 		}
-		len = list_length(stack_b);
-		if (len > 0)
-			ft_putstr("KO");
-		else
-			ft_putstr("OK");
+		(list_length(stack_b) > 0) ? ft_putstr("KO\n") : ft_putstr("OK\n");
 	}
-
 	return (0);
 }
