@@ -6,12 +6,12 @@
 /*   By: mdube <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/16 13:54:36 by mdube             #+#    #+#             */
-/*   Updated: 2019/08/17 18:05:32 by mdube            ###   ########.fr       */
+/*   Updated: 2019/08/24 14:53:36 by mdube            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker/check.h"
-#include "push_swap/push_swap.h"
+#include "../checker/check.h"
+#include "push_swap.h"
 
 int		is_sorted(block *stack)
 {

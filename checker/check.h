@@ -6,7 +6,7 @@
 /*   By: mdube <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/20 14:39:18 by mdube             #+#    #+#             */
-/*   Updated: 2019/08/19 14:31:37 by mdube            ###   ########.fr       */
+/*   Updated: 2019/08/24 16:10:43 by mdube            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 # define CHECK_H
 # include "../libft/libft.h"
 
-typedef struct node
+typedef struct	node
 {
 	int data;
 	struct node *next;
-}block;
+}				block;
 
 block		*create_stack_a(block *stack);
 block		*createNode(void);
@@ -29,9 +29,9 @@ block		*push_list(block *stack);
 int		pop_number(block *stack);
 int		list_length(block *head);
 
-
-void		ft_instr(char *line, block *stack);
-void		ft_instr_both(char *line, block *stack1, block *stack2);
+void		reading_instr(block *stack1, block *stack2, int accept);
+void		ft_instr(block *stack, int num);
+void		ft_instr_both(block *stack1, block *stack2, int num);
 void		swap_data(block *head);
 void		rotate_normal(block *stack);
 void		rotate_reverse(block *stack);

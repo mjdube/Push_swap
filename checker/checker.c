@@ -6,7 +6,7 @@
 /*   By: mdube <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/08 17:17:12 by mdube             #+#    #+#             */
-/*   Updated: 2019/08/20 16:38:17 by mdube            ###   ########.fr       */
+/*   Updated: 2019/08/24 15:10:13 by mdube            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,20 @@ int				main(int argc, char **argv)
 		if (checking_numbers(argv) == 1)
 		{
 			stack_a = create_stack(argc, argv);
-			while (get_next_line(0, &line) == 1)
+			while (get_next_line(0, &line))
 			{
-				/*if (is_verify(line))
+				reading_instr(&stack_a, &stack_b, is_verify(line));
+				if (ft_strcmp("done", (const char*)line) || ft_strcmp("DONE", (const char*)line))
+					break ;
+			}
+			/*while (get_next_line(0, &line) == 1)
+			{
+				if (is_verify(line))
 					ft_instr(stack_a, is_verify(line));
 				else if ()
 					ft_instr(stack_b, is_verify(line));
 				else if ()
-					ft_instr_both(stack_a, stack_b, is_verify(line));*/
+					ft_instr_both(stack_a, stack_b, is_verify(line));
 				else if (ft_strequ("pa", (const char*)line))
 				{
 					number = pop_number(stack_b);
@@ -69,7 +75,7 @@ int				main(int argc, char **argv)
 					stack_b = push_to_stack(number, stack_b);
 					stack_a = push_list(stack_a);
 				}
-			}
+			}*/
 		}
 		else
 		{

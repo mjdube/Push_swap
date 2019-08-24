@@ -1,35 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_instr_both.c                                    :+:      :+:    :+:   */
+/*   reading_instr.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdube <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/19 14:21:20 by mdube             #+#    #+#             */
-/*   Updated: 2019/08/24 16:02:36 by mdube            ###   ########.fr       */
+/*   Created: 2019/08/24 10:47:15 by mdube             #+#    #+#             */
+/*   Updated: 2019/08/24 16:02:57 by mdube            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "check.h"
-#include "../libft/libft.h"
 
-void		ft_instr_both(block *stack1, block *stack2, int num)
+void		 reading_instr(block *stack1, block *stack2, int accept)
 {
-	if (num == 3)
-	{
-		swap_data(stack1);
-		swap_data(stack2);
-	}
-	else if (num == 6)
-	{
-		rotate_reverse(stack1);
-		rotate_reverse(stack2);
-	}
-	else if (num == 9)
-	{
-		rotate_reverse(stack1);
-		rotate_reverse(stack2);
-	}
-	else
-		return ;
+	ft_instr(stack_a, accept);
+	ft_instr(stack_b, accept);
+	ft_instr_both(stack_a, stack_b, accept);
 }
