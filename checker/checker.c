@@ -44,14 +44,13 @@ int				main(int argc, char **argv)
 	
 	if (argc > 1)
 	{
-		stack_a = NULL;
 		stack_b = NULL;
 		if (checking_numbers(argv) == 1)
 		{
 			stack_a = create_stack(argc, argv);
 			while (get_next_line(0, &line))
 			{
-				reading_instr(&stack_a, &stack_b, is_verify(line));
+				reading_instr(stack_a, stack_b, is_verify(line));
 				if (ft_strcmp("done", (const char*)line) || ft_strcmp("DONE", (const char*)line))
 					break ;
 			}
