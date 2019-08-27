@@ -13,14 +13,14 @@
 #include "check.h"
 #include "../libft/libft.h"
 
-void		ft_instr(block *stack, int num)
+void		ft_instr(block **stack, int num)
 {
 	if (num == 1 || num == 2)
-		swap_data(stack);
+		swap_data((*(&stack)));
 	else if (num == 4 || num == 5)
-		rotate_normal(stack);
+		rotate_normal((*(&stack)));
 	else if (num == 7 || num == 8)
-		rotate_reverse(stack);
+		rotate_reverse((*(&stack)));
 	else
 		return ;
 }

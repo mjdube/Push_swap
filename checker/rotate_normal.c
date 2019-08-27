@@ -12,21 +12,21 @@
 
 #include "check.h"
 
-void			rotate_normal(block *head)
+void			rotate_normal(block **head)
 {
 	int		temp;
 	int		len;
-	block	*previous;
+	block	**previous;
 
-	len = list_length(head);
+	len = list_length((*head));
 	if (len < 1)
 		return ;
 	while (len--)
 	{
-		previous = head;
-		temp = head->data;
-		head = head->next;
-		previous->data = head->data;
-		head->data = temp;
+		*previous = *head;
+		temp = (*head)->data;
+		*head = (*head)->next;
+		(*previous)->data = (*head)->data;
+		(*head)->data = temp;
 	}
 }

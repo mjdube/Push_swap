@@ -13,7 +13,7 @@
 #include "check.h"
 #include "../libft/libft.h"
 
-void		ft_instr_both(block *stack1, block *stack2, int num)
+void		ft_instr_both(block **stack1, block **stack2, int num)
 {
 	if (num == 3)
 	{

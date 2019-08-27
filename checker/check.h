@@ -31,10 +31,10 @@ int		list_length(block *head);
 int		is_verify(char *line);
 
 void		reading_instr(block *stack1, block *stack2, int accept);
-void		ft_instr(block *stack, int num);
-void		ft_instr_both(block *stack1, block *stack2, int num);
-void		swap_data(block *head);
-void		rotate_normal(block *stack);
-void		rotate_reverse(block *stack);
+void		ft_instr(block **stack, int num);
+void		ft_instr_both(block **stack1, block **stack2, int num);
+void		swap_data(block **head);
+void		rotate_normal(block **stack);
+void		rotate_reverse(block **stack);
 void		push(block **lstsrc, block **lstdst);
 #endif

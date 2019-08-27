@@ -12,21 +12,21 @@
 
 #include "check.h"
 
-void		rotate_reverse(block *stack)
+void		rotate_reverse(block **stack)
 {
-	block *previous;
+	block **previous;
 	int len;
 	int temp;
 
-	len = list_length(stack);
+	len = list_length((*stack));
 	if (len < 1)
 		return ;
-	previous = stack;
-	while (stack->next!= NULL)
+	**previous = **stack;
+	while ((*stack)->next!= NULL)
 	{
-		stack = stack->next;
-		temp = stack->data;
-		stack->data = previous->data;
-		previous->data = temp;
+		*stack = (*stack)->next;
+		temp = (*stack)->data;
+		(*stack)->data = (*previous)->data;
+		(*previous)->data = temp;
 	}
 }
