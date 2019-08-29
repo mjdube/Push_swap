@@ -21,6 +21,11 @@ void		rotate_reverse(block **stack)
 	len = list_length((*stack));
 	if (len < 1)
 		return ;
+	if (len == 2)
+	{
+		swap_data(*(&stack));
+		return ;
+	}
 	**previous = **stack;
 	while ((*stack)->next!= NULL)
 	{
@@ -29,4 +34,5 @@ void		rotate_reverse(block **stack)
 		(*stack)->data = (*previous)->data;
 		(*previous)->data = temp;
 	}
+	return ;
 }
