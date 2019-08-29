@@ -14,19 +14,21 @@
 
 void		rotate_reverse(block **stack)
 {
-	block **previous;
+	block *start;
+	block *previous;
 	int len;
 	int temp;
 
 	len = list_length((*stack));
 	if (len < 1)
 		return ;
-	**previous = **stack;
-	while ((*stack)->next!= NULL)
+	start = (*stack);
+	previous = (*stack);
+	while (start)
 	{
-		*stack = (*stack)->next;
-		temp = (*stack)->data;
-		(*stack)->data = (*previous)->data;
-		(*previous)->data = temp;
+		start = start->next;
+		temp = start->data;
+		start->data = previous->data;
+		previous->data = temp;
 	}
 }

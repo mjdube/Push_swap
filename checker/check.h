@@ -30,7 +30,7 @@ int		pop_number(block *stack);
 int		list_length(block *head);
 int		is_verify(char *line);
 
-void		reading_instr(block *stack1, block *stack2, int accept);
+void		reading_instr(block **stack1, block **stack2, int accept);
 void		ft_instr(block **stack, int num);
 void		ft_instr_both(block **stack1, block **stack2, int num);
 void		swap_data(block **head);

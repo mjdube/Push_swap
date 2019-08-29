@@ -14,7 +14,7 @@
 
 void		swap_data(block **head)
 {
-	int		temp;
+	int		swap;
 	int		len;
 	block	*temp1;
 	block	*temp2;
@@ -25,7 +25,7 @@ void		swap_data(block **head)
 	temp1 = (*head);
 	temp2 = (*head);
 	temp2 = temp2->next;
-	temp = temp1->data;
+	swap = temp1->data;
 	temp1->data = temp2->data;
-	temp2->data = temp;
+	temp2->data = swap;
 }
