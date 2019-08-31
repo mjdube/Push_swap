@@ -11,28 +11,30 @@
 /* ************************************************************************** */
 
 #include "check.h"
+#include <stdio.h>
 
 void		rotate_reverse(block **stack)
 {
-	block **previous;
+	block *start;
+	block *previous;
+	block *end;
 	int len;
 	int temp;
 
 	len = list_length((*stack));
-	if (len < 1)
+	if (len <= 1)
 		return ;
-	if (len == 2)
+	start = (*stack);
+	previous = (*stack);
+	end = (*stack);
+	while (end->next != NULL)
+		end = end->next;
+	while (--len)
 	{
-		swap_data(*(&stack));
-		return ;
-	}
-	**previous = **stack;
-	while ((*stack)->next!= NULL)
-	{
-		*stack = (*stack)->next;
-		temp = (*stack)->data;
-		(*stack)->data = (*previous)->data;
-		(*previous)->data = temp;
+		temp = start->data;
+		start->data = end->data;
+		end->data = temp;
+		start = start->next;
 	}
 	return ;
 }

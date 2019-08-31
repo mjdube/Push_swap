@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_sorted.c                                        :+:      :+:    :+:   */
+/*   top_bottom.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdube <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/16 13:54:36 by mdube             #+#    #+#             */
-/*   Updated: 2019/08/24 14:53:36 by mdube            ###   ########.fr       */
+/*   Created: 2019/08/31 07:26:15 by mdube             #+#    #+#             */
+/*   Updated: 2019/08/31 07:26:21 by mdube            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../checker/check.h"
 #include "push_swap.h"
 
-int		is_sorted_a(block *stack)
+int         top_bottom(block *stack, int small, int div)
 {
-	block *lst;
+    int i;
+    int found;
 
-	lst = stack;
-	while (lst->next != NULL)
-	{
-		if (compare(lst->data, lst->next->data) == 0)
-			lst = lst->next;
-		else
-			return (0);
-	}
-	return (1);
+    i = 1;
+    while (stack->next != NULL)
+    {
+        if (div <= i)
+        {
+            if (stack->data == small)
+                found = 1;          
+        }
+        if (div >= i)
+        {
+            if (stack->data == small)
+                found = 2;
+        }
+        stack = stack->next;
+    }
+    return (found);
 }

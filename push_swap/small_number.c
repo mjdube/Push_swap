@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap_data.c                                        :+:      :+:    :+:   */
+/*   small_number.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdube <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/20 15:56:39 by mdube             #+#    #+#             */
-/*   Updated: 2019/07/29 13:13:11 by mdube            ###   ########.fr       */
+/*   Created: 2019/08/30 21:24:37 by mdube             #+#    #+#             */
+/*   Updated: 2019/08/30 21:25:00 by mdube            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "check.h"
+#include "push_swap.h"
+#include <stdio.h>
 
-void		swap_data(block **head)
+int         small_number(block *stack)
 {
-	int		swap;
-	int		len;
-	block	*temp1;
-	block	*temp2;
+    int len;
+    int small;
 
-	len = list_length((*head));
-	if (len < 1)
-		return ;
-	temp1 = (*head);
-	temp2 = (*head);
-	temp2 = temp2->next;
-	swap = temp1->data;
-	temp1->data = temp2->data;
-	temp2->data = swap;
+    len = list_length(stack);
+    if (len > 0)
+        small = stack->data;
+    while (--len)
+    {
+        stack = stack->next;
+        if (stack->data < small)
+            small = stack->data;
+    
+    }
+    return (small);
 }

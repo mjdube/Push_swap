@@ -26,15 +26,17 @@ block		*create_stack(int argc, char **argv);
 block		*push_to_stack(int number, block *stack);
 block		*push_list(block *stack);
 
-int		pop_number(block *stack);
-int		list_length(block *head);
-int		is_verify(char *line);
+int			pop_number(block *stack);
+int			list_length(block *head);
+int			is_verify(char *line);
+int			ft_checking_numbers(char **str);
 
-void		reading_instr(block *stack1, block *stack2, int accept);
+void		reading_instr(block **stack1, block **stack2, int accept);
 void		ft_instr(block **stack, int num);
 void		ft_instr_both(block **stack1, block **stack2, int num);
 void		swap_data(block **head);
 void		rotate_normal(block **stack);
 void		rotate_reverse(block **stack);
 void		push(block **lstsrc, block **lstdst);
+
 #endif

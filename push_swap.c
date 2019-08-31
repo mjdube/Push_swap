@@ -10,21 +10,33 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "/checker/check.h"
-#include "/push_swap/push_swap.h"
+#include "checker/check.h"
+#include "push_swap/push_swap.h"
+#include <stdio.h>
 
 int			main(int argc, char **argv)
 {
 	block *stack_a;
 	block *stack_b;
+	int small;
+	int small1;
+	int len;
+	int div;
 	int i;
+	int num;
 
 	if (argc > 1)
 	{
 		stack_a = create_stack(argc, argv);
 		stack_b = NULL;
-		i = 0;
 
+		while (1)
+		{
+			loop_stack(&stack_a, &stack_b);
+			
+			if (is_sorted_a(stack_a) == 1)
+				break ;
+		}
 	}
 	/*while (stack_a)
 	{

@@ -16,6 +16,9 @@
 #include "../checker/check.h"
 
 int			compare(int num1, int num2);
-int			is_sorted(block *stack);
+int			is_sorted_a(block *stack);
+int         small_number(block *stack);
+int         top_bottom(block *stack, int small, int div);
 
+void        loop_stack(block **stack_a, block **stack_b);
 #endif

@@ -16,17 +16,20 @@ void			rotate_normal(block **head)
 {
 	int		temp;
 	int		len;
-	block	**previous;
+	block	*previous;
+	block	*start;
 
 	len = list_length((*head));
-	if (len < 1)
+	if (len <= 1)
 		return ;
-	while (len--)
+	previous = (*head);
+	start = (*head);
+	while (--len > 0)
 	{
-		*previous = *head;
-		temp = (*head)->data;
-		*head = (*head)->next;
-		(*previous)->data = (*head)->data;
-		(*head)->data = temp;
+		previous = start;
+		temp = start->data;
+		start = start->next;
+		previous->data = start->data;
+		start->data = temp;
 	}
 }

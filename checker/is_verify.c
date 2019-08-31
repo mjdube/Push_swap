@@ -13,7 +13,6 @@
 #include "check.h"
 #include "../libft/libft.h"
 
-
 int			is_verify(char *line)
 {
 	if (ft_strcmp("sa", (const char*)line) == 0)

@@ -12,9 +12,9 @@
 
 NAME = push_swap.a
 
-SRC = is_sorted.c compare_numbers.c
+SRC = loop_stack.c top_bottom.c small_number.c is_sorted.c compare_numbers.c
 
-OBJ = is_sorted.o compare_numbers.o
+OBJ = loop_stack.o top_bottom.o small_number.o is_sorted.o compare_numbers.o
 
 all: $(NAME)
 
@@ -24,7 +24,7 @@ $(NAME):
 	@echo "Creating objects files and our library"
 
 clean:
-	@rm *.o
+	@rm -f $(OBJ)
 	@echo "Cleaning object files"
 
 fclean: clean

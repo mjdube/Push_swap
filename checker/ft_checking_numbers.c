@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap_data.c                                        :+:      :+:    :+:   */
+/*   ft_checking_numbers.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdube <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/20 15:56:39 by mdube             #+#    #+#             */
-/*   Updated: 2019/07/29 13:13:11 by mdube            ###   ########.fr       */
+/*   Created: 2019/08/30 19:56:55 by mdube             #+#    #+#             */
+/*   Updated: 2019/08/30 19:57:05 by mdube            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "check.h"
 
-void		swap_data(block **head)
+int				ft_checking_numbers(char **str)
 {
-	int		swap;
-	int		len;
-	block	*temp1;
-	block	*temp2;
+	int			i;
+	int			j;
 
-	len = list_length((*head));
-	if (len < 1)
-		return ;
-	temp1 = (*head);
-	temp2 = (*head);
-	temp2 = temp2->next;
-	swap = temp1->data;
-	temp1->data = temp2->data;
-	temp2->data = swap;
+	i = 1;
+	while (str[i])
+	{
+		j = 0;
+		while (str[i][j])
+		{
+			if (ft_isalpha(str[i][j]) == 1)
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	return (1);
 }
