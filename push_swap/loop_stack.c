@@ -14,15 +14,35 @@
 
 void        loop_stack(block **stack_a, block **stack_b)
 {
-    int i;
     int small;
-    int div;
+    int split;
     int len;
 
-    i = 0;
     small = small_number((*stack_a));
     len = list_length((*stack_a));
-    while (is_sorted_a(*stack_a) == 0)
+
+    if ((*stack_a)->data != small)
+    {
+        split = len / 2;
+        if (top_bottom(*stack_a, small, split) == 1)
+        {
+            rotate_normal(&(*stack_a));
+            ft_putendl("ra");
+        }
+        else if (top_bottom(*stack_a, small, split) == 2)
+        {
+            rotate_reverse(&(*stack_a));
+            ft_putendl("rra");
+        }
+    }
+    else if ((*stack_a)->data == small && is_sorted_a(*stack_a) == 0)
+    {
+        push(&(*stack_a), &(*stack_b));
+        ft_putendl("pa");
+    }
+
+
+    /*while (is_sorted_a(*stack_a) == 0)
     {
         ft_putendl("hi");
         div = len / 2;
@@ -39,5 +59,5 @@ void        loop_stack(block **stack_a, block **stack_b)
                 break ;
             }
         }
-    }
+    }*/
 }

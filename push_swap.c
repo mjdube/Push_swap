@@ -12,6 +12,7 @@
 
 #include "checker/check.h"
 #include "push_swap/push_swap.h"
+#include "libft/libft.h"
 #include <stdio.h>
 
 int			main(int argc, char **argv)
@@ -30,10 +31,9 @@ int			main(int argc, char **argv)
 		stack_a = create_stack(argc, argv);
 		stack_b = NULL;
 
-		while (1)
+		while (is_sorted_a(stack_a) == 0)
 		{
 			loop_stack(&stack_a, &stack_b);
-			
 			if (is_sorted_a(stack_a) == 1)
 				break ;
 		}

@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int         top_bottom(block *stack, int small, int div)
+int         top_bottom(block *stack, int small, int split)
 {
     int i;
     int found;
@@ -20,12 +20,12 @@ int         top_bottom(block *stack, int small, int div)
     i = 1;
     while (stack->next != NULL)
     {
-        if (div <= i)
+        if (split >= i)
         {
             if (stack->data == small)
                 found = 1;          
         }
-        if (div >= i)
+        else if (split <= i)
         {
             if (stack->data == small)
                 found = 2;
