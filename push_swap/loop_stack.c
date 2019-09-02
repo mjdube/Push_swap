@@ -21,43 +21,30 @@ void        loop_stack(block **stack_a, block **stack_b)
     small = small_number((*stack_a));
     len = list_length((*stack_a));
 
-    if ((*stack_a)->data != small)
+    if (len == 0)
+        return ;
+    else if ((*stack_a)->data != small)
     {
         split = len / 2;
+        if (compare((*stack_a)->data, (*stack_a)->next->next->data) && compare((*stack_a)->next->data, (*stack_a)->next->next->data))
+        {
+            swap_data(*(&stack_a));
+            ft_putendl("sa");
+        }
         if (top_bottom(*stack_a, small, split) == 1)
         {
-            rotate_normal(&(*stack_a));
+            rotate_normal(*(&stack_a));
             ft_putendl("ra");
         }
         else if (top_bottom(*stack_a, small, split) == 2)
         {
-            rotate_reverse(&(*stack_a));
+            rotate_reverse(*(&stack_a));
             ft_putendl("rra");
         }
     }
     else if ((*stack_a)->data == small && is_sorted_a(*stack_a) == 0)
     {
-        push(&(*stack_a), &(*stack_b));
-        ft_putendl("pa");
+        push(*(&stack_a), *(&stack_b));
+        ft_putendl("pb");
     }
-
-
-    /*while (is_sorted_a(*stack_a) == 0)
-    {
-        ft_putendl("hi");
-        div = len / 2;
-        if (top_bottom(*stack_a, small, div) == 1)
-            rotate_normal(&(*stack_a));
-        if (top_bottom(*stack_a, small, div) == 2)
-            rotate_reverse(&(*stack_a));
-        else if ((*stack_a)->data == small)
-        {
-            if (is_sorted_a(*stack_a) == 1)
-            {
-                ft_putstr("hi\n");
-                push(&(*stack_a), &(*stack_b));
-                break ;
-            }
-        }
-    }*/
 }

@@ -16,21 +16,26 @@ int         top_bottom(block *stack, int small, int split)
 {
     int i;
     int found;
+    int len;
+    block *lst;
 
     i = 1;
-    while (stack->next != NULL)
+    lst = stack;
+    len = list_length(stack);
+    while (len--)
     {
         if (split >= i)
         {
-            if (stack->data == small)
+            if (lst->data == small)
                 found = 1;          
         }
         else if (split <= i)
         {
-            if (stack->data == small)
+            if (lst->data == small)
                 found = 2;
         }
-        stack = stack->next;
+        lst = lst->next;
+        i++;
     }
     return (found);
 }

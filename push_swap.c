@@ -19,16 +19,12 @@ int			main(int argc, char **argv)
 {
 	block *stack_a;
 	block *stack_b;
-	int small;
-	int small1;
-	int len;
-	int div;
-	int i;
-	int num;
+	block *lst;
 
 	if (argc > 1)
 	{
 		stack_a = create_stack(argc, argv);
+
 		stack_b = NULL;
 
 		while (is_sorted_a(stack_a) == 0)
@@ -37,6 +33,7 @@ int			main(int argc, char **argv)
 			if (is_sorted_a(stack_a) == 1)
 				break ;
 		}
+		
 	}
 	/*while (stack_a)
 	{
