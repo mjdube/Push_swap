@@ -33,7 +33,17 @@ int			main(int argc, char **argv)
 			if (is_sorted_a(stack_a) == 1)
 				break ;
 		}
-		
+		while (stack_b != NULL)
+		{
+			push(&stack_b, &stack_a);
+			ft_putendl("pa");
+		}
+		while (stack_a->next != NULL)
+		{
+			printf("%d ",stack_a->data);
+			stack_a = stack_a->next;
+		}
+		printf("%d ",stack_a->data);
 	}
 	/*while (stack_a)
 	{
