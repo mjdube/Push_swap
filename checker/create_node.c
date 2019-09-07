@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   create_node.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdube <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/16 12:37:23 by mdube             #+#    #+#             */
-/*   Updated: 2019/08/16 18:28:00 by mdube            ###   ########.fr       */
+/*   Created: 2019/09/07 13:55:37 by mdube             #+#    #+#             */
+/*   Updated: 2019/09/07 13:55:41 by mdube            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "check.h"
 
-#include "../checker/check.h"
+t_block		*create_node(void)
+{
+	t_block	*node;
 
-int			compare(int num1, int num2);
-int			is_sorted(block *stack);
-int         small_number(block *stack);
-int         top_bottom(block *stack, int small, int div);
-
-void        loop_stack(block **stack_a, block **stack_b);
-#endif
+	node = (t_block*)ft_memalloc(sizeof(t_block));
+	node->data = 0;
+	node->next = NULL;
+	return (node);
+}

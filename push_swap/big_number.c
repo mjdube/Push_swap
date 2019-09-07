@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   createNode.c                                       :+:      :+:    :+:   */
+/*   big_number.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdube <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/20 11:57:20 by mdube             #+#    #+#             */
-/*   Updated: 2019/07/22 13:16:17 by mdube            ###   ########.fr       */
+/*   Created: 2019/09/07 11:36:35 by mdube             #+#    #+#             */
+/*   Updated: 2019/09/07 11:36:39 by mdube            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "check.h"
+#include "push_swap.h"
 
-block		*createNode(void)
+int         big_number(block *stack)
 {
-	block	*node;
+    int len;
+    int big;
 
-	node = (block*)ft_memalloc(sizeof(block));
-	node->data = 0;
-	node->next = NULL;
-	return (node);
+    len = list_length(stack);
+    if (len > 0)
+        big = stack->data;
+    while (--len)
+    {
+        stack = stack->next;
+        if (stack->data > big)
+            big = stack->data;
+    
+    }
+    return (big);
 }

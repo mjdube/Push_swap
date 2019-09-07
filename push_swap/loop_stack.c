@@ -23,10 +23,24 @@ void        loop_stack(block **stack_a, block **stack_b)
 
     if (len == 0)
         return ;
-    if (compare((*stack_a)->data, (*stack_a)->next->data))
+    if (len <= 3)
+    //if (compare((*stack_a)->data, (*stack_a)->next->data) && is_sorted_a((*stack_a)->next))
     {
-        swap_data(*(&stack_a));
-        ft_putendl("sa");
+        if ((*stack_a)->data > (*stack_a)->next->data && (*stack_a)->next->data < (*stack_a)->next->next->data)
+        {
+            swap_data(*(&stack_a));
+            ft_putendl("sa");
+        }
+        if ((*stack_a)->data < (*stack_a)->next->data && (*stack_a)->next->data > (*stack_a)->next->next->data)
+        {
+            rotate_reverse(*(&stack_a));
+            ft_putendl("rra");
+        }
+        if ((*stack_a)->data > (*stack_a)->next->data && (*stack_a)->next->data > (*stack_a)->next->next->data)
+        {
+            rotate_reverse(*(&stack_a));
+            ft_putendl("rra");
+        }
     }
     else if (compare((*stack_a)->data, (*stack_a)->next->data) && compare((*stack_a)->next->next->data, (*stack_a)->next->data))
     {

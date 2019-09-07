@@ -14,29 +14,30 @@
 # define CHECK_H
 # include "../libft/libft.h"
 
-typedef struct	node
+typedef struct		s_node
 {
-	int data;
-	struct node *next;
-}				block;
+	int				data;
+	struct s_node	*next;
+}					t_block;
 
-block		*create_stack_a(block *stack);
-block		*createNode(void);
-block		*create_stack(int argc, char **argv);
-block		*push_to_stack(int number, block *stack);
-block		*push_list(block *stack);
+t_block				*create_stack_a(t_block *stack);
+t_block				*create_node(void);
+t_block				*create_stack(int argc, char **argv);
+t_block				*push_to_stack(int number, t_block *stack);
+t_block				*push_list(t_block *stack);
 
-int			pop_number(block *stack);
-int			list_length(block *head);
-int			is_verify(char *line);
-int			ft_checking_numbers(char **str);
+int					pop_number(t_block *stack);
+int					list_length(t_block *head);
+int					is_verify(char *line);
+int					ft_checking_numbers(char **str);
 
-void		reading_instr(block **stack1, block **stack2, int accept);
-void		ft_instr(block **stack, int num);
-void		ft_instr_both(block **stack1, block **stack2, int num);
-void		swap_data(block **head);
-void		rotate_normal(block **stack);
-void		rotate_reverse(block **stack);
-void		push(block **lstsrc, block **lstdst);
+void				reading_instr(t_block **stack1,
+		t_block **stack2, int accept);
+void				ft_instr(t_block **stack, int num);
+void				ft_instr_both(t_block **stack1, t_block **stack2, int num);
+void				swap_data(t_block **head);
+void				rotate_normal(t_block **stack);
+void				rotate_reverse(t_block **stack);
+void				push(t_block **lstsrc, t_block **lstdst);
 
 #endif
