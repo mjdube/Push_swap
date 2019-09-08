@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check.h                                            :+:      :+:    :+:   */
+/*   more_nums.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdube <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/20 14:39:18 by mdube             #+#    #+#             */
-/*   Updated: 2019/07/20 14:45:18 by mdube            ###   ########.fr       */
+/*   Created: 2019/09/08 13:53:48 by mdube             #+#    #+#             */
+/*   Updated: 2019/09/08 13:53:58 by mdube            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECK_H
-# define CHECK_H
+#include "push_swap.h"
 
-typedef struct node
+void        more_nums(t_block **stack_a, int small, unsigned int split)
 {
-	int data;
-	struct node *next;
-}block;
-
-block		*createNode(void);
-#endif
+    if (top_bottom(*stack_a, small, split) == 1)
+    {
+        rotate_normal(*(&stack_a));
+        ft_putendl("ra");
+    }
+    else if (top_bottom(*stack_a, small, split) == 2)
+    {
+        rotate_reverse(*(&stack_a));
+        ft_putendl("rra");
+    }
+}

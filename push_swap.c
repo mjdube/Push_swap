@@ -10,27 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker/check.h"
 #include "push_swap/push_swap.h"
-#include "libft/libft.h"
 #include <stdio.h>
 
 int			main(int argc, char **argv)
 {
-	block *stack_a;
-	block *stack_b;
-	block *lst;
+	t_block *stack_a;
+	t_block *stack_b;
+	t_block *lst;
 
 	if (argc > 1)
 	{
 		stack_a = create_stack(argc, argv);
-
 		stack_b = NULL;
-
-		while (is_sorted_a(stack_a) == 0)
+		while (is_sorted(stack_a) == 0)
 		{
 			loop_stack(&stack_a, &stack_b);
-			if (is_sorted_a(stack_a) == 1)
+			if (is_sorted(stack_a) == 1)
 				break ;
 		}
 		while (stack_b != NULL)
@@ -45,21 +41,6 @@ int			main(int argc, char **argv)
 		}
 		printf("%d ",stack_a->data);
 	}
-	/*while (stack_a)
-	{
-		if (is_sorted(stack_a) == 0)
-		{
-			if (compare(stack_a->data, stack_a->next->data) == 1)
-			{
-				if (i == 0)
-				{
-					swap_data(stack_a);
-					ft_putstr("sa");
-				}
-			}
-		}
-		i++:
-		stack_a = stack_a->next;
-	}*/
+
 	return (0);
 }

@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int         small_number(block *stack)
+int         small_number(t_block *stack)
 {
     int len;
     int small;

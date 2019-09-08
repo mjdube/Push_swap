@@ -13,11 +13,11 @@
 #include "check.h"
 #include <stdio.h>
 
-void		rotate_reverse(block **stack)
+void		rotate_reverse(t_block **stack)
 {
-	block *start;
-	block *previous;
-	block *end;
+	t_block *start;
+	t_block *previous;
+	t_block *end;
 	int len;
 	int temp;
 

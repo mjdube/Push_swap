@@ -12,12 +12,12 @@
 
 #include "check.h"
 
-void		swap_data(block **head)
+void		swap_data(t_block **head)
 {
 	int		swap;
 	int		len;
-	block	*temp1;
-	block	*temp2;
+	t_block	*temp1;
+	t_block	*temp2;
 
 	len = list_length((*head));
 	if (len < 1)

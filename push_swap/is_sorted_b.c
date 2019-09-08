@@ -12,9 +12,9 @@
 
 #include "push_swap.h"
 
-int		is_sorted_a(block *stack)
+int		is_sorted_a(t_block *stack)
 {
-	block *lst;
+	t_block *lst;
 
 	lst = stack;
 	while (lst->next != NULL)

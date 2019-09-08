@@ -13,7 +13,7 @@
 #include "check.h"
 #include "../libft/libft.h"
 
-void		ft_instr(block **stack, int num)
+void		ft_instr(t_block **stack, int num)
 {
 	if (num == 1 || num == 2)
 		swap_data((*(&stack)));

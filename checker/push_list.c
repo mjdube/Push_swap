@@ -12,9 +12,9 @@
 
 #include "check.h"
 
-block		*push_list(block *stack)
+t_block		*push_list(t_block *stack)
 {
-	block *temp;
+	t_block *temp;
 
 	if (stack == NULL)
 		return (NULL);
