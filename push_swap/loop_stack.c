@@ -23,14 +23,15 @@ void        loop_stack(block **stack_a, block **stack_b)
 
     if (len == 0)
         return ;
+    if (compare((*stack_a)->data, (*stack_a)->next->next->data) && compare((*stack_a)->next->data, (*stack_a)->next->next->data))
+    {
+        swap_data(*(&stack_a));
+        ft_putendl("sa");
+    }
     else if ((*stack_a)->data != small)
     {
         split = len / 2;
-        if (compare((*stack_a)->data, (*stack_a)->next->next->data) && compare((*stack_a)->next->data, (*stack_a)->next->next->data))
-        {
-            swap_data(*(&stack_a));
-            ft_putendl("sa");
-        }
+
         if (top_bottom(*stack_a, small, split) == 1)
         {
             rotate_normal(*(&stack_a));
