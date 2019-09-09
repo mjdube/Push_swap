@@ -12,16 +12,16 @@
 
 #include "check.h"
 
-block		*push_to_stack(int number, block *stack)
+t_block		*push_to_stack(int number, t_block *stack)
 {
-	block	*temp;
+	t_block	*temp;
 	if (stack == NULL)
 	{
-		temp = createNode();
+		temp = create_node();
 		temp->data = number;
 		return (temp);
 	}
-	temp = createNode();
+	temp = create_node();
 	temp->data = number;
 	temp->next = stack;
 	return (temp);

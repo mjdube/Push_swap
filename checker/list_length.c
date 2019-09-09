@@ -12,7 +12,7 @@
 
 #include "check.h"
 
-int			list_length(block *head)
+int			list_length(t_block *head)
 {
 	int i;
 

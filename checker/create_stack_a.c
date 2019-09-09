@@ -12,18 +12,18 @@
 
 #include "check.h"
 
-block		*create_stack_a(block *stack)
+t_block		*create_stack_a(t_block *stack)
 {
 	int len;
-	block *head;
-	block *node;
-	block *temp;
+	t_block *head;
+	t_block *node;
+	t_block *temp;
 
 	head = NULL;
 	len = list_length(stack);
 	if (len == 1)
 	{
-		head = createNode();
+		head = create_node();
 		head->data = stack->data;
 		return (head);
 	}
@@ -31,14 +31,14 @@ block		*create_stack_a(block *stack)
 		return (NULL);
 	if (head == NULL)
 	{
-		node = createNode();
+		node = create_node();
 		node->data = stack->data;
 		head = node;
 		stack = stack->next;
 	}
 	while (stack)
 	{
-		temp = createNode();
+		temp = create_node();
 		temp->data = stack->data;
 		node->next = temp;
 		node = node->next;

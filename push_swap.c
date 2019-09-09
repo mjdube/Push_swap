@@ -10,56 +10,41 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker/check.h"
 #include "push_swap/push_swap.h"
-#include "libft/libft.h"
-#include <stdio.h>
 
 int			main(int argc, char **argv)
 {
-	block *stack_a;
-	block *stack_b;
-	block *lst;
+	t_block *stack_a;
+	t_block *stack_b;
+	int len;
 
 	if (argc > 1)
 	{
-		stack_a = create_stack(argc, argv);
+		if (ft_checking_numbers(argv))
+		{
+			stack_a = create_stack(argc, argv);
+			stack_b = NULL;
 
-		stack_b = NULL;
-
-		while (is_sorted_a(stack_a) == 0)
-		{
-			loop_stack(&stack_a, &stack_b);
-			if (is_sorted_a(stack_a) == 1)
-				break ;
-		}
-		while (stack_b != NULL)
-		{
-			push(&stack_b, &stack_a);
-			ft_putendl("pa");
-		}
-		while (stack_a->next != NULL)
-		{
-			printf("%d ",stack_a->data);
-			stack_a = stack_a->next;
-		}
-		printf("%d ",stack_a->data);
-	}
-	/*while (stack_a)
-	{
-		if (is_sorted(stack_a) == 0)
-		{
-			if (compare(stack_a->data, stack_a->next->data) == 1)
+			while (is_sorted(stack_a) == 0)
 			{
-				if (i == 0)
-				{
-					swap_data(stack_a);
-					ft_putstr("sa");
-				}
+
+				
+				// loop_stack(&stack_a, &stack_b);
+				// if (is_sorted(stack_a) == 1)
+					// break ;
 			}
-		}
-		i++:
-		stack_a = stack_a->next;
-	}*/
+			/*while (stack_b != NULL)
+			{
+				push(&stack_b, &stack_a);
+				ft_putendl("pa");
+			}
+			while (stack_a->next != NULL)
+			{
+				printf("%d ",stack_a->data);
+				stack_a = stack_a->next;
+			}
+			printf("%d ",stack_a->data);*/
+		}	
+	}
 	return (0);
 }

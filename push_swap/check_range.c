@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_instr.c                                         :+:      :+:    :+:   */
+/*   check_range.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdube <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/19 14:12:38 by mdube             #+#    #+#             */
-/*   Updated: 2019/08/20 16:38:03 by mdube            ###   ########.fr       */
+/*   Created: 2019/09/09 13:34:34 by mdube             #+#    #+#             */
+/*   Updated: 2019/09/09 13:34:37 by mdube            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "check.h"
-#include "../libft/libft.h"
+#include "push_swap.h"
 
-void		ft_instr(t_block **stack, int num)
+int         check_rage(t_block *stack, int diff,)
 {
-	if (num == 1 || num == 2)
-		swap_data((*(&stack)));
-	else if (num == 4 || num == 5)
-		rotate_normal((*(&stack)));
-	else if (num == 7 || num == 8)
-		rotate_reverse((*(&stack)));
-	else
-		return ;
+    int 
 }

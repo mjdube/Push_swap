@@ -12,10 +12,10 @@
 
 #include "check.h"
 
-int		pop_number(block *stack)
+int		pop_number(t_block *stack)
 {
 	int	number;
-	block	*temp;
+	t_block	*temp;
 
 	number = stack->data;
 	return (number);

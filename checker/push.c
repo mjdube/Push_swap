@@ -12,7 +12,7 @@
 
 #include "check.h"
 
-void			push(block **lstsrc, block **lstdst)
+void			push(t_block **lstsrc, t_block **lstdst)
 {
 	int num; 
 

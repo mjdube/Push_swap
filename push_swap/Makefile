@@ -12,9 +12,9 @@
 
 NAME = push_swap.a
 
-SRC = loop_stack.c top_bottom.c small_number.c is_sorted.c compare_numbers.c
+SRC = three_nums.c more_nums.c loop_stack.c top_bottom.c small_number.c is_sorted.c compare_numbers.c
 
-OBJ = loop_stack.o top_bottom.o small_number.o is_sorted.o compare_numbers.o
+OBJ = three_nums.o more_nums.o loop_stack.o top_bottom.o small_number.o is_sorted.o compare_numbers.o
 
 all: $(NAME)
 

@@ -12,7 +12,7 @@
 
 #include "check.h"
 
-void		 reading_instr(block **stack1, block **stack2, int accept)
+void		 reading_instr(t_block **stack1, t_block **stack2, int accept)
 {
 	if (accept == 1 || accept == 4 || accept == 7)
 		ft_instr(&(*stack1), accept);
