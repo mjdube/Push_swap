@@ -20,11 +20,14 @@ $(NAME):
 	@gcc -c -I -Wall -Werror -Wextra $(SRC)
 	@ar rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
+	@echo "Creating objects files and our library"
 
 clean:
 	@rm -f $(OBJ)
 
 fclean: clean
 	@rm -f $(NAME)
+	@echo "Cleaning object files"
 
 re: fclean all
+	@echo "Recompiling"

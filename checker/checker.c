@@ -10,17 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "check.h"
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
+#include "checker/check.h"
 
 int				main(int argc, char **argv)
 {
 	char		*line;
-	block		*stack_a;
-	block		*stack_b;
-	
+	t_block		*stack_a;
+	t_block		*stack_b;
+
 	if (argc > 1)
 	{
 		stack_b = NULL;
@@ -28,9 +25,7 @@ int				main(int argc, char **argv)
 		{
 			stack_a = create_stack(argc, argv);
 			while (get_next_line(0, &line) > 0)
-			{
 				reading_instr(&stack_a, &stack_b, is_verify(line));
-			}
 		}
 		else
 		{
