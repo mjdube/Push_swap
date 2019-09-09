@@ -14,7 +14,18 @@
 
 void        loop_stack(t_block **stack_a, t_block **stack_b)
 {
+    int len;
+    int diff;
     int small;
+    int big;
+
+    small = small_number(*stack_a);
+    big = big_number(*stack_a);
+    while (is_sorted(*stack_a))
+    {
+        len = list_length(*stack_a);
+    }
+   /* int small;
     unsigned int split;
     int len;
 
@@ -47,11 +58,10 @@ void        loop_stack(t_block **stack_a, t_block **stack_b)
             rotate_reverse(*(&stack_a));
             ft_putendl("rra");
         }
-    */
     }
     else if ((*stack_a)->data == small && is_sorted(*stack_a) == 0)
     {
         push(*(&stack_a), *(&stack_b));
         ft_putendl("pb");
-    }
+    }*/
 }
