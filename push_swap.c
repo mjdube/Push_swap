@@ -16,7 +16,7 @@ int			main(int argc, char **argv)
 {
 	t_block *stack_a;
 	t_block *stack_b;
-	int len;
+	unsigned int len;
 
 	if (argc > 1)
 	{
