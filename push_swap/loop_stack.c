@@ -12,18 +12,26 @@
 
 #include "push_swap.h"
 
-void        loop_stack(t_block **stack_a, t_block **stack_b)
+void        loop_stack(t_block **stack_a, t_block **stack_b, unsigned int len)
 {
-    int len;
     int diff;
     int small;
     int big;
+    int range;
+    t_block *lst;
 
     small = small_number(*stack_a);
     big = big_number(*stack_a);
-    while (is_sorted(*stack_a))
+    diff = big - small;
+    range = diff / 5;
+    while (lst != NULL)
     {
-        len = list_length(*stack_a);
+        lst = *stack_a;
+        small = small_number(lst);
+        if (small >= lst->data && lst->data <= (small + range - 1))
+        {
+            if (lst->data )
+        }
     }
    /* int small;
     unsigned int split;

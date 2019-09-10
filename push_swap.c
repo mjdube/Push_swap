@@ -24,12 +24,11 @@ int			main(int argc, char **argv)
 		{
 			stack_a = create_stack(argc, argv);
 			stack_b = NULL;
-
+			
 			while (is_sorted(stack_a) == 0)
 			{
-
-				
-				// loop_stack(&stack_a, &stack_b);
+				len = list_length(stack_a);
+				loop_stack(&stack_a, &stack_b, len);
 				// if (is_sorted(stack_a) == 1)
 					// break ;
 			}
@@ -44,7 +43,9 @@ int			main(int argc, char **argv)
 				stack_a = stack_a->next;
 			}
 			printf("%d ",stack_a->data);*/
-		}	
+		}
+		else
+			ft_putendl("ERROR");	
 	}
 	return (0);
 }

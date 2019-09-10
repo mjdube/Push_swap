@@ -12,10 +12,4 @@
 
 #include "push_swap.h"
 
-int         chunk(int small, int big)
-{
-    int chunks;
-
-    chunks = big - small;
-    return (chunks);
-}
+void        chunk(t_block **stack_a, t_block **stack_b)
