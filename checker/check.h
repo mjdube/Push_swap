@@ -27,7 +27,7 @@ t_block				*push_to_stack(int number, t_block *stack);
 t_block				*push_list(t_block *stack);
 
 int					pop_number(t_block *stack);
-int					list_length(t_block *head);
+unsigned int		list_length(t_block *head);
 int					is_verify(char *line);
 int					ft_checking_numbers(char **str);
 

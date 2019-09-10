@@ -18,9 +18,9 @@
 int			compare(int num1, int num2);
 int			is_sorted(t_block *stack);
 int         small_number(t_block *stack);
-int         top_bottom(t_block *stack, int small, int div);
+int         top_bottom(t_block *stack, int small, unsigned int split);
 
-void        loop_stack(t_block **stack_a, t_block **stack_b);
+void        loop_stack(t_block **stack_a, t_block **stack_b, unsigned int len);
 void        three_nums(t_block **stack_a);
 void        more_nums(t_block **stack_a, int small, unsigned int split);
 

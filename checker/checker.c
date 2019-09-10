@@ -6,11 +6,11 @@
 /*   By: mdube <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/08 17:17:12 by mdube             #+#    #+#             */
-/*   Updated: 2019/08/24 15:10:13 by mdube            ###   ########.fr       */
+/*   Updated: 2019/09/10 10:51:36 by mdube            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker/check.h"
+#include "check.h"
 
 int				main(int argc, char **argv)
 {

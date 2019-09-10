@@ -12,9 +12,9 @@
 
 #include "check.h"
 
-int			list_length(t_block *head)
+unsigned int			list_length(t_block *head)
 {
-	int i;
+	unsigned int i;
 
 	i = 0;
 	while (head)

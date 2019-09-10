@@ -12,11 +12,11 @@
 
 #include "push_swap.h"
 
-int         top_bottom(t_block *stack, int num, int split)
+int         top_bottom(t_block *stack, int num, unsigned int split)
 {
     int i;
     int found;
-    int len;
+    unsigned int len;
     t_block *lst;
 
     i = 1;

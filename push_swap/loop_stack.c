@@ -19,19 +19,32 @@ void        loop_stack(t_block **stack_a, t_block **stack_b, unsigned int len)
     int big;
     int range;
     t_block *lst;
+    t_block *lst2;
 
     small = small_number(*stack_a);
     big = big_number(*stack_a);
     diff = big - small;
     range = diff / 5;
+    lst = *stack_a;
     while (lst != NULL)
     {
-        lst = *stack_a;
-        small = small_number(lst);
-        if (small >= lst->data && lst->data <= (small + range - 1))
+        small = small_number(*stack_a);
+        while (small >= lst->data && lst->data <= (small + range - 1))
         {
-            if (lst->data )
+            if (lst->data == (*stack_a)->data)
+            {
+                push(&(*stack_a), &(*stack_b));
+                ft_putendl("pb");
+            }
+            else if (lst->data != (*stack_a)->data)
+            {
+                while (lst->data != (*stack_a)->data)
+                {
+                    
+                }
+            }
         }
+        lst = lst->next;
     }
    /* int small;
     unsigned int split;
