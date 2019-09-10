@@ -18,6 +18,7 @@ void        loop_stack(t_block **stack_a, t_block **stack_b, unsigned int len)
     int small;
     int big;
     int range;
+    unsigned int split;
     t_block *lst;
     t_block *lst2;
 
@@ -38,8 +39,23 @@ void        loop_stack(t_block **stack_a, t_block **stack_b, unsigned int len)
             }
             else if (lst->data != (*stack_a)->data)
             {
-                while (lst->data != (*stack_a)->data)
+                lst2 = lst;
+                
+                split = len / 2;
+                if (top_bottom(lst, small, split) == 1)
                 {
+                    rotate_normal(&(*stack_a));
+                    ft_putendl("ra"); 
+                }
+                else if (top_bottom(lst, small, split) == 2)
+                {
+                    rotate_reverse(&(*stack_a));
+                    ft_putendl("rra");
+                }
+                if (lst2->data == (*stack_a)->data)
+                {
+                    push(&(*stack_a), &(*stack_b));
+                    ft_putendl("pb");
                     
                 }
             }
