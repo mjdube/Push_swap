@@ -14,7 +14,7 @@
 
 int         top_bottom(t_block *stack, int num, unsigned int split)
 {
-    int i;
+    unsigned int i;
     int found;
     unsigned int len;
     t_block *lst;

@@ -11,27 +11,48 @@
 /* ************************************************************************** */
 
 #include "push_swap/push_swap.h"
+#include <stdio.h>
 
 int			main(int argc, char **argv)
 {
 	t_block *stack_a;
 	t_block *stack_b;
 	unsigned int len;
+	int range;
+	int diff;
+    int small;
+    int big;
 
+	diff = big - small;
 	if (argc > 1)
 	{
 		if (ft_checking_numbers(argv))
 		{
+			
 			stack_a = create_stack(argc, argv);
 			stack_b = NULL;
-			
-			while (is_sorted(stack_a) == 0)
+			small = small_number(stack_a);
+			big = big_number(stack_a);
+			diff = big - small;
+			range = diff / 5;
+			len = list_length(stack_a);
+			if (len >= 100)
 			{
-				len = list_length(stack_a);
-				loop_stack(&stack_a, &stack_b, len);
+				while (stack_a != NULL)
+				{
+					len = list_length(stack_a);
+					ft_putnbr(len);
+					loop_stack(&stack_a, &stack_b, len, range);
+				 }
+				while (stack_b != NULL)
+				{
+					printf("%d ",stack_b->data);
+					stack_b = stack_b->next;
+				}
+			}
 				// if (is_sorted(stack_a) == 1)
 					// break ;
-			}
+			// }
 			/*while (stack_b != NULL)
 			{
 				push(&stack_b, &stack_a);

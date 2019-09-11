@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int         big_number(block *stack)
+int         big_number(t_block *stack)
 {
     int len;
     int big;
