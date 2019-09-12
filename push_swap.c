@@ -36,19 +36,35 @@ int			main(int argc, char **argv)
 			diff = big - small;
 			range = diff / 5;
 			len = list_length(stack_a);
-			if (len >= 100)
+			if (len > 100)
 			{
 				while (stack_a != NULL)
 				{
 					len = list_length(stack_a);
-					ft_putnbr(len);
+					// ft_putnbr(len);
 					loop_stack(&stack_a, &stack_b, len, range);
-				 }
+				}
 				while (stack_b != NULL)
 				{
 					printf("%d ",stack_b->data);
 					stack_b = stack_b->next;
 				}
+				// while (stack_b != NULL)
+				// {
+					// push(&stack_b, &stack_a);
+					// ft_putendl("pa");
+				// }
+				// while (stack_a != NULL)
+				// {
+					// printf("%d ",stack_a->data);
+					// stack_a = stack_a->next;
+				// }
+				// while (stack_a != NULL)
+				// {
+					// printf("%d ",stack_a->data);
+					// stack_a = stack_a->next;
+				// }
+							
 			}
 				// if (is_sorted(stack_a) == 1)
 					// break ;

@@ -20,10 +20,10 @@ void        loop_stack(t_block **stack_a, t_block **stack_b, unsigned int len, i
     t_block *lst;
     // t_block *lst2;
     int small;
+    int temp;
 
     small = small_number(*stack_a);
     //big = big_number(*stack_a);
-    
     
     lst = *stack_a;
     while (lst != NULL)
@@ -31,42 +31,35 @@ void        loop_stack(t_block **stack_a, t_block **stack_b, unsigned int len, i
         // small = small_number(*stack_a);
         if (small >= lst->data && lst->data <= small + range - 1)
         {
-            // ft_putnbr(lst->data);
-            ft_putnbr(small + range - 1);
-            if (lst->data == (*stack_a)->data)
+            temp = lst->data;
+            if (small >= (*stack_a)->data && (*stack_a)->data <= small + range)
             {
                 push(&(*stack_a), &(*stack_b));
                 ft_putendl("pb");
+                lst = *stack_a;
             }
-            else if (lst->data != (*stack_a)->data)
+            else if (!(small >= (*stack_a)->data && (*stack_a)->data <= small + range))
             {
                 // lst2 = *stack_a;
                 split = len / 2;
-                
-                while (lst->data != (*stack_a)->data)
+                if (top_bottom(lst, temp, split) == 1)
                 {
-                    if (top_bottom(*stack_a, lst->data, split) == 1)
-                    {
-                        rotate_normal(&(*stack_a));
-                        ft_putendl("ra");
-                         ft_putnbr((*stack_a)->data);
-                        // ft_putnbr(small);
-                        
-                    }
-                    else if (top_bottom(*stack_a, (*stack_a)->data, split) == 2)
-                    {
-                        rotate_reverse(&(*stack_a));
-                        ft_putendl("rra");
-                    }
+                    rotate_normal(&(*stack_a));
+                    ft_putendl("ra");
+                    // ft_putnbr((*stack_a)->data);
+                    // ft_putnbr();
                 }
-                if (lst->data == (*stack_a)->data)
+                else if (top_bottom(lst, temp, split) == 2)
                 {
-                    push(&(*stack_a), &(*stack_b));
-                    ft_putendl("pb");
-                    lst = *stack_a;
-                    break ;
-                    
-                    }
+                    rotate_reverse(&(*stack_a));
+                    ft_putendl("rra");
+                }
+                // if (small >= (*stack_a)->data && (*stack_a)->data <= small + range)
+                // {
+                    // push(&(*stack_a), &(*stack_b));
+                    // ft_putendl("pb");
+                    // lst = *stack_a;
+                // }
             }
             
         }
