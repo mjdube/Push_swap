@@ -14,7 +14,8 @@
 
 void        loop_stack_2(t_block **stack_a, t_block **stack_b, unsigned int len, int range)
 {
-    unsigned int split;
+    
+    /*unsigned int split;
     t_block *lst;
     int small;
     int temp;
@@ -40,5 +41,5 @@ void        loop_stack_2(t_block **stack_a, t_block **stack_b, unsigned int len,
         }
         else 
             lst = lst->next;
-    }
+    }*/
 }

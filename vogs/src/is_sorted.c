@@ -13,17 +13,22 @@
 
 #include "push_swap.h"
 
-int		is_sorted(t_block *stack)
+int				is_sorted(t_block *stack)
 {
-	t_block *lst;
+	int			i;
+	t_block		*lst;
 
+	i = 1;
 	lst = stack;
-	while (lst->next != NULL)
+	while (lst != NULL)
 	{
 		if (compare(lst->data, lst->next->data) == 0)
+		{	
 			lst = lst->next;
+			i++;
+		}
 		else
-			return (0);
+			return (i);
 	}
-	return (1);
+	return (0);
 }

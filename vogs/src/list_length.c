@@ -17,6 +17,8 @@ unsigned int			list_length(t_block *head)
 	int i;
 
 	i = 0;
+	if (head == NULL)
+		return (0);
 	while (head)
 	{
 		head = head->next;
