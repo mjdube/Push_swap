@@ -12,29 +12,13 @@
 
 #include "src/push_swap.h"
 
-void				push_swap(t_block **stack_a, t_block **stack_b, unsigned int len)
-{
-	int				small;
-	int				big;
-	int				diff;
-	int				range;
-
-	small = small_number((*stack_a));
-	big = big_number((*stack_a));
-	diff = big - small;
-	range = diff / 5;
-	if (len <= 99)
-		loop_stack_1(&(*stack_a), &(*stack_b));
-	else if (len >= 100)
-		loop_stack_2(&(*stack_a), &(*stack_b), len, range);
-}
-
+void				push_swap(t_block **stack_a, t_block **stack_b);
+void				sorted_stacks(t_block **stack_a, t_block **stack_b);
 
 int					main(int argc, char **argv)
 {
 	t_block			*stack_a;
 	t_block			*stack_b;
-	unsigned int	len;
 
 	if (argc > 1)
 	{
@@ -44,18 +28,8 @@ int					main(int argc, char **argv)
 			stack_b = NULL;
 			if (dup_nums(stack_a) == int_max(stack_a))
 			{
-				len = list_length(stack_a);
-				while (stack_a != NULL)
-				{
-					push_swap(&stack_a, &stack_b, len);
-					if (is_sorted(stack_a) == 1)
-						break ;
-				}
-				//while (stack_b != NULL)
-				//{
-				//	push(&stack_b, &stack_a);
-				//	ft_putendl("pa");
-				//}
+				push_swap(&stack_a, &stack_b);
+				sorted_stacks(&stack_a, &stack_a);
 			}
 			else
 			{
@@ -67,4 +41,39 @@ int					main(int argc, char **argv)
 			ft_putendl("ERROR");
 	}
 	return (0);
+}
+
+void				push_swap(t_block **stack_a, t_block **stack_b)
+{
+	int				big;
+
+	big = big_number(*stack_b);
+	if (is_sorted(*stack_a) > 0)
+		return (loop_stack_1(&(*stack_a), &(*stack_b)));
+	else if (is_sorted(*stack_a) == 0 && is_sorted_b(*stack_b) > 0)
+	{
+		if (is_sorted_b(*stack_b) == 1)
+		{
+			swap_data(&(*stack_b));
+			ft_putendl("sb");
+		}
+		else if ((*stack_b)->data == big)
+		{
+			push(&(*stack_b), &(*stack_a));
+			ft_putendl("pa");
+		}
+	}
+	else if (is_sorted(*stack_a) == 0 && stack_b == NULL)
+		return ;
+}
+
+void				sorted_stacks(t_block **stack_a, t_block **stack_b)
+{
+	if (is_sorted(*stack_a) == 0 && is_sorted_b(*stack_b) == 0)
+	{
+		push(&(*stack_b), &(*stack_a));
+		ft_putendl("pa");
+		while (is_sorted(*stack_a) > 0)
+			push_swap(&(*stack_a), &(*stack_b));
+	}
 }

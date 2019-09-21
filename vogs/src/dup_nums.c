@@ -16,25 +16,19 @@ int					dup_nums(t_block *stack)
 {
 	t_block			*search;
 	t_block			*find;
-	unsigned int	len;
-	unsigned int	i;
 
-	len = list_length(stack);
 	search = stack;
-	while (search != NULL)
+	while (search->next != NULL)
 	{
-		i = 0;
 		find = search;
-		while (i < len)
+		while (find->next != NULL)
 		{
-			if (search->data != find->data)
+			if (search->data != find->next->data)
 				find = find->next;
-			else if (search->data == find->data)
+			else if (search->data == find->next->data)
 				return (0);
-			i++;
 		}
 		search = search->next;
-		len--;
 	}
 	return (1);
 }

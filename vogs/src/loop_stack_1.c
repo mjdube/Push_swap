@@ -14,35 +14,25 @@
 
 void				loop_stack_1(t_block **stack_a, t_block **stack_b)
 {
-	int				small;
 	unsigned int	len_a;
 	unsigned int	len_b;
 
-	len_a = small_number((*stack_a));
+	len_a = list_length((*stack_a));
 	len_b = list_length((*stack_b));
 	if (len_a == 0)
 		return ;
 	if (len_a <= 3)
 		three_nums(&(*stack_a));
-	else if (is_sorted(stack_a) == 1)
+	else if (is_sorted((*stack_a)) == 1 && len_a > 3)
 	{
-		swap_data(*(&stack_a));
+		swap_data(&(*stack_a));
 		ft_putendl("sa");
 	}
-	else if (is_sorted(stack_a) > 1)
+	else if (is_sorted((*stack_a)) > 1 && len_a > 3)
 	{
 		push(&(*stack_a), &(*stack_b));
 		ft_putendl("pb");
-		// split = (unsigned int)len / 2;
-		// more_nums(&(*stack_a), small, split);
 	}
-	if (len_b > 1)
-	{
-		
-	}
-	// else if ((*stack_a)->data == small && is_sorted(*stack_a) == 0)
-	// {
-		// push(*(&stack_a), *(&stack_b));
-		// ft_putendl("pb");
-	// }
+	if (len_b > 0)
+		loop_stack_2(&(*stack_a), &(*stack_b));
 }

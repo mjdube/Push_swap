@@ -20,7 +20,9 @@ int				is_sorted(t_block *stack)
 
 	i = 1;
 	lst = stack;
-	while (lst != NULL)
+	if (lst == NULL)
+		return (0);
+	while (lst->next != NULL)
 	{
 		if (compare(lst->data, lst->next->data) == 0)
 		{	

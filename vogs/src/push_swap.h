@@ -48,11 +48,11 @@ int         		small_number(t_block *stack);
 int         		top_bottom(t_block *stack, int small, unsigned int split);
 int         		big_number(t_block *stack_a);
 int					int_max(t_block *stack);
+int					is_sorted_b(t_block *stack);
 
 void				loop_stack_1(t_block **stack_a, t_block **stack_b);
-void        		loop_stack_2(t_block **stack_a, t_block **stack_b, unsigned int len,
-int range);
+void        		loop_stack_2(t_block **stack_a, t_block **stack_b);
 void        		three_nums(t_block **stack_a);
 void				more_nums(t_block **stack_a, int small, unsigned int split);
-
+void				push_swap(t_block **stack_a, t_block **stack_b);
 #endif

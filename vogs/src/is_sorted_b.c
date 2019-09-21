@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   int_max.c                                          :+:      :+:    :+:   */
+/*   is_sorted_b.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdube <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/16 14:18:48 by mdube             #+#    #+#             */
-/*   Updated: 2019/09/16 14:18:52 by mdube            ###   ########.fr       */
+/*   Created: 2019/09/18 08:30:16 by mdube             #+#    #+#             */
+/*   Updated: 2019/09/18 08:30:20 by mdube            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int         int_max(t_block *stack)
+int             is_sorted_b(t_block *stack)
 {
-    t_block *lst;
+	int			i;
+	t_block		*lst;
 
-    lst = stack;
-    while (lst->next != NULL)
-    {
-        if (-2147483648 <= lst->data && lst->data <= 2147483647)
-            lst = lst->next;
-        else
-            return (0);
-    }
-    return (1);
+	i = 1;
+	lst = stack;
+	if (lst == NULL)
+		return (0);
+	while (lst->next != NULL)
+	{
+		if (compare(lst->data, lst->next->data) == 1)
+		{	
+			lst = lst->next;
+			i++;
+		}
+		else
+			return (i);
+	}
+	return (0);
+
 }
