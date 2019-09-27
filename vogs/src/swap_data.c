@@ -12,9 +12,9 @@
 
 #include "push_swap.h"
 
-void		swap_data(t_block **head)
+void			swap_data(t_block **head)
 {
-	int		swap;
+	long long	swap;
 	int		len;
 	t_block	*temp1;
 	t_block	*temp2;

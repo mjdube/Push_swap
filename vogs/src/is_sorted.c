@@ -22,7 +22,7 @@ int				is_sorted(t_block *stack)
 	lst = stack;
 	if (lst == NULL)
 		return (0);
-	while (lst->next != NULL)
+	while (lst != NULL)
 	{
 		if (compare(lst->data, lst->next->data) == 0)
 		{	

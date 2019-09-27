@@ -26,12 +26,12 @@ t_block			*create_stack(int argc, char **argv)
 	numbers = (const char **)argv;
 	i = 1;
 	node = create_node();
-	node->data = ft_atoi(numbers[i++]);
+	node->data = ft_atoll(numbers[i++]);
 	head = node;
 	while (--argc > 1)
 	{
 		temp = create_node();
-		temp->data = ft_atoi(numbers[i++]);
+		temp->data = ft_atoll(numbers[i++]);
 		node->next = temp;
 		node = node->next;
 	}

@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void		more_nums(t_block **stack_a, int small, unsigned int split)
+void		more_nums(t_block **stack_a, long long small, unsigned int split)
 {
 	if (top_bottom(*stack_a, small, split) == 1)
 	{

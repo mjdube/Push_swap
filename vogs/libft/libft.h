@@ -25,6 +25,7 @@ int				ft_isascii(int c);
 
 int				ft_atoi(const char *str);
 char			*ft_itoa(int n);
+long long       ft_atoll(const char *str);
 
 void			ft_bzero(void *s, size_t n);
 void			*ft_memalloc(size_t size);

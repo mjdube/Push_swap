@@ -12,13 +12,13 @@
 
 #include "push_swap.h"
 
-void		ft_instr(t_block **stack, int num)
+void		ft_instr(t_block **stack, int accept)
 {
-	if (num == 1 || num == 2)
+	if (accept == 1 || accept == 2)
 		swap_data((*(&stack)));
-	else if (num == 4 || num == 5)
+	else if (accept == 4 || accept == 5)
 		rotate_normal((*(&stack)));
-	else if (num == 7 || num == 8)
+	else if (accept == 7 || accept == 8)
 		rotate_reverse((*(&stack)));
 	else
 		return ;

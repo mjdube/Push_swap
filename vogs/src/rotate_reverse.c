@@ -12,13 +12,13 @@
 
 #include "push_swap.h"
 
-void		rotate_reverse(t_block **stack)
+void			rotate_reverse(t_block **stack)
 {
-	t_block *start;
-	t_block *previous;
-	t_block *end;
-	int		len;
-	int		temp;
+	t_block		*start;
+	t_block 	*previous;
+	t_block 	*end;
+	int			len;
+	long long	temp;
 
 	len = list_length((*stack));
 	if (len <= 1)

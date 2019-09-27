@@ -14,7 +14,7 @@
 
 void			rotate_normal(t_block **head)
 {
-	int		temp;
+	long long	temp;
 	int		len;
 	t_block	*previous;
 	t_block	*start;

@@ -17,7 +17,7 @@ int         int_max(t_block *stack)
     t_block *lst;
 
     lst = stack;
-    while (lst->next != NULL)
+    while (lst != NULL)
     {
         if (-2147483648 <= lst->data && lst->data <= 2147483647)
             lst = lst->next;

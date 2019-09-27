@@ -28,8 +28,12 @@ int					main(int argc, char **argv)
 			stack_b = NULL;
 			if (dup_nums(stack_a) == int_max(stack_a))
 			{
-				push_swap(&stack_a, &stack_b);
-				sorted_stacks(&stack_a, &stack_a);
+				ft_putendl("hi");
+				while (is_sorted(stack_a) > 0)
+				{
+					push_swap(&stack_a, &stack_b);
+				}
+				// sorted_stacks(&stack_a, &stack_a);
 			}
 			else
 			{
@@ -46,10 +50,12 @@ int					main(int argc, char **argv)
 void				push_swap(t_block **stack_a, t_block **stack_b)
 {
 	int				big;
+	unsigned int	len;
 
+	len = list_length(*stack_a);
 	big = big_number(*stack_b);
-	if (is_sorted(*stack_a) > 0)
-		return (loop_stack_1(&(*stack_a), &(*stack_b)));
+	if (is_sorted(*stack_a) > 0 && len <= 3)
+		loop_stack_1(&(*stack_a), &(*stack_b));
 	else if (is_sorted(*stack_a) == 0 && is_sorted_b(*stack_b) > 0)
 	{
 		if (is_sorted_b(*stack_b) == 1)

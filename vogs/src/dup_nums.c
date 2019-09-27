@@ -18,14 +18,14 @@ int					dup_nums(t_block *stack)
 	t_block			*find;
 
 	search = stack;
-	while (search->next != NULL)
+	while (search != NULL)
 	{
-		find = search;
-		while (find->next != NULL)
+		find = search->next;
+		while (find != NULL)
 		{
-			if (search->data != find->next->data)
+			if (search->data != find->data)
 				find = find->next;
-			else if (search->data == find->next->data)
+			else if (search->data == find->data)
 				return (0);
 		}
 		search = search->next;

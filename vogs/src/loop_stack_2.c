@@ -38,7 +38,7 @@ void        loop_stack_2(t_block **stack_a, t_block **stack_b)
         ft_putendl("pa");
     }
     if (is_sorted(*stack_a) == 0 && is_sorted_b(*stack_b))
-        return (loop_stack_1(stack_a, stack_b));
+        loop_stack_1(&(*stack_a), &(*stack_b));
     /*
     unsigned int split;
     t_block *lst;

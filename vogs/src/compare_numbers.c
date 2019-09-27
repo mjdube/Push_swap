@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int			compare(int num1, int num2)
+int			compare(long long num1, long long num2)
 {
 	if (num1 > num2)
 		return (1);
