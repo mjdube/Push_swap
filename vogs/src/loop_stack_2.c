@@ -19,7 +19,7 @@ void        loop_stack_2(t_block **stack_a, t_block **stack_b)
 
     len = list_length((*stack_b));
     num = big_number(*stack_b);
-    if (is_sorted_b(*stack_b) >= 0)
+    if (is_sorted_b(*stack_b) == 0)
         return ;
     else if (len == 2 && is_sorted_b(*stack_b) == 1)
     {
@@ -37,8 +37,8 @@ void        loop_stack_2(t_block **stack_a, t_block **stack_b)
         push(&(*stack_b), &(*stack_a));
         ft_putendl("pa");
     }
-    if (is_sorted(*stack_a) == 0 && is_sorted_b(*stack_b))
-        loop_stack_1(&(*stack_a), &(*stack_b));
+    //if (is_sorted(*stack_a) == 0 && is_sorted_b(*stack_b))
+      //  loop_stack_1(&(*stack_a), &(*stack_b));
     /*
     unsigned int split;
     t_block *lst;
