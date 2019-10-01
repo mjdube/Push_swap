@@ -21,18 +21,17 @@ void        loop_stack_2(t_block **stack_a, t_block **stack_b)
     num = big_number(*stack_b);
     if (is_sorted_b(*stack_b) == 0)
         return ;
-    else if (len == 2 && is_sorted_b(*stack_b) == 1)
+    else if (len >= 2 && is_sorted_b(*stack_b) == 1)
     {
         swap_data(*(&stack_b));
         ft_putendl("sb");
     }
-    else if (is_sorted_b(*stack_b) == 1 && (*stack_b)->data != num)
+    else if (is_sorted_b(*stack_b) == 1 && (*stack_b)->data != num )
     {
         rotate_normal(*(&stack_b));
         ft_putendl("rb");
     }
-    else if (is_sorted((*stack_a)) == 0 && compare((*stack_b)->data,
-     (*stack_b)->next->data) == 1)
+    else if (is_sorted((*stack_a)) == 0 && is_sorted_b(*stack_b))
     {
         push(*(&stack_b), *(&stack_a));
         ft_putendl("pa");

@@ -14,26 +14,28 @@
 
 void		three_nums(t_block **stack_a)
 {
-	if ((*stack_a) && (*stack_a)->next && (*stack_a)->next->next)
+	while (is_sorted(*stack_a) > 0)
 	{
-		if ((*stack_a)->data > (*stack_a)->next->data &&
-				(*stack_a)->next->data < (*stack_a)->next->next->data)
+		if ((*stack_a) && (*stack_a)->next && (*stack_a)->next->next)
 		{
-			swap_data(*(&stack_a));
-			ft_putendl("sa");
+			if ((*stack_a)->data > (*stack_a)->next->data &&
+					(*stack_a)->next->data < (*stack_a)->next->next->data)
+			{
+				swap_data(*(&stack_a));
+				ft_putendl("sa");
+			}
+			if ((*stack_a)->data < (*stack_a)->next->data &&
+					(*stack_a)->next->data > (*stack_a)->next->next->data)
+			{
+				rotate_reverse(*(&stack_a));
+				ft_putendl("rra");
+			}
+			if ((*stack_a)->data > (*stack_a)->next->data &&
+					(*stack_a)->next->data > (*stack_a)->next->next->data)
+			{
+				rotate_reverse(*(&stack_a));
+				ft_putendl("rra");
+			}
 		}
-	
-	if ((*stack_a)->data < (*stack_a)->next->data &&
-			(*stack_a)->next->data > (*stack_a)->next->next->data)
-	{
-		rotate_reverse(*(&stack_a));
-		ft_putendl("rra");
-	}
-	if ((*stack_a)->data > (*stack_a)->next->data &&
-			(*stack_a)->next->data > (*stack_a)->next->next->data)
-	{
-		rotate_reverse(*(&stack_a));
-		ft_putendl("rra");
-	}
 	}
 }

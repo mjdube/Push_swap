@@ -32,6 +32,8 @@ int					main(int argc, char **argv)
 			{
 				while (is_sorted(stack_a) > 0)
 					loop_stack_1(&stack_a, &stack_b);
+				while (stack_b != NULL)
+					sorted_stacks(&stack_a, &stack_b);
 			}
 			else
 			{
@@ -72,11 +74,20 @@ void				push_swap(t_block **stack_a, t_block **stack_b)
 
 void				sorted_stacks(t_block **stack_a, t_block **stack_b)
 {
-	if (is_sorted(*stack_a) == 0 && is_sorted_b(*stack_b) == 0)
+	long			big;
+	big = big_number(*stack_b);
+
+	if (is_sorted_b(*stack_b) == 0 && is_sorted(*stack_a) == 0)
+	{
+		push(&(*stack_b), &(*stack_a));
+		ft_putendl("pa");
+	}
+
+	/*if (is_sorted(*stack_a) == 0 && is_sorted_b(*stack_b) == 0)
 	{
 		push(&(*stack_b), &(*stack_a));
 		ft_putendl("pa");
 		while (is_sorted(*stack_a) > 0)
 			push_swap(&(*stack_a), &(*stack_b));
-	}
+	}*/
 }
