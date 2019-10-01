@@ -12,10 +12,10 @@
 
 #include "push_swap.h"
 
-long long		pop_number(t_block *stack)
+long		pop_number(t_block *stack)
 {
-	long long	number;
-	t_block		*temp;
+	long	number;
+	t_block	*temp;
 
 	number = stack->data;
 	return (number);

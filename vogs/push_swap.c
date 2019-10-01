@@ -22,25 +22,20 @@ int					main(int argc, char **argv)
 
 	if (argc > 1)
 	{
+		if (argc == 2)
+			argv = ft_strsplit(argv[1], ' ');
 		if (ft_checking_numbers(argv))
 		{
 			stack_a = create_stack(argc, argv);
 			stack_b = NULL;
 			if (dup_nums(stack_a) == int_max(stack_a))
 			{
-				
-				while (is_sorted(stack_a) != 0)
-				{
-					ft_putnbr(is_sorted(stack_a));
+				while (is_sorted(stack_a) > 0)
 					loop_stack_1(&stack_a, &stack_b);
-					//push_swap(&stack_a, &stack_b);
-				}
-				// sorted_stacks(&stack_a, &stack_a);
 			}
 			else
 			{
 				ft_putendl("ERROR");
-				exit(0);
 			}
 		}
 		else

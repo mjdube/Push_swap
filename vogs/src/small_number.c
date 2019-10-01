@@ -12,10 +12,10 @@
 
 #include "push_swap.h"
 
-int				small_number(t_block *stack)
+long					small_number(t_block *stack)
 {
-	int			len;
-	long long	small;
+	unsigned int		len;
+	long				small;
 
 	len = list_length(stack);
 	if (len > 0)

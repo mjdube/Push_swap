@@ -14,9 +14,9 @@
 
 void				loop_stack(t_block **stack_a, t_block **stack_b)
 {
-	int				small;
+	long				small;
 	unsigned int	split;
-	int				len;
+	unsigned int				len;
 
 	small = small_number((*stack_a));
 	len = list_length((*stack_a));

@@ -14,7 +14,7 @@
 
 void			push(t_block **lstsrc, t_block **lstdst)
 {
-	int			num;
+	long		num;
 
 	num = pop_number(*lstsrc);
 	*lstdst = push_to_stack(num, *lstdst);

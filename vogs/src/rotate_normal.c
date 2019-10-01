@@ -12,12 +12,12 @@
 
 #include "push_swap.h"
 
-void			rotate_normal(t_block **head)
+void				rotate_normal(t_block **head)
 {
-	long long	temp;
-	int		len;
-	t_block	*previous;
-	t_block	*start;
+	long			temp;
+	unsigned int	len;
+	t_block			*previous;
+	t_block			*start;
 
 	len = list_length((*head));
 	if (len <= 1)
