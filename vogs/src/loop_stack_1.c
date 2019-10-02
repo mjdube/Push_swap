@@ -22,7 +22,7 @@ void				loop_stack_1(t_block **stack_a, t_block **stack_b)
 	if (len_a == 0)
 		return ;
 	if (len_a <= 3)
-		three_nums(stack_a);
+		three_nums(*(&stack_a));
 	else if (is_sorted((*stack_a)) == 1 && len_a > 3)
 	{
 		swap_data(*(&stack_a));

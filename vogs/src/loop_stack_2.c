@@ -14,9 +14,11 @@
 
 void        loop_stack_2(t_block **stack_a, t_block **stack_b)
 {
-    long    num;
-    unsigned int len;
-  
+    long            num;
+    unsigned int    len;
+    int             rb;
+    int             rrb;
+
     len = list_length((*stack_b));
     num = big_number(*stack_b);
     if (is_sorted_b(*stack_b) == 0)
@@ -26,15 +28,22 @@ void        loop_stack_2(t_block **stack_a, t_block **stack_b)
         swap_data(*(&stack_b));
         ft_putendl("sb");
     }
-    else if (is_sorted_b(*stack_b) == 1 && (*stack_b)->data != num )
+    if (is_sorted_b(*stack_b) >= 2 && (*stack_b)->data == num)
     {
-        rotate_normal(*(&stack_b));
-        ft_putendl("rb");
-    }
-    else if (is_sorted((*stack_a)) == 0 && is_sorted_b(*stack_b))
-    {
-        push(*(&stack_b), *(&stack_a));
-        ft_putendl("pa");
+        rb = is_sorted_b(*stack_b);
+        rrb = is_sorted_b(*stack_b);
+        while (--rb)
+        {
+            rotate_normal(&(*stack_b));
+            ft_putendl("rb");
+        }
+        swap_data(&(*stack_b));
+        ft_putendl("sb");
+        while (--rrb)
+        {
+            rotate_reverse(&(*stack_b));
+            ft_putendl("rrb");
+        }
     }
     //if (is_sorted(*stack_a) == 0 && is_sorted_b(*stack_b))
       //  loop_stack_1(&(*stack_a), &(*stack_b));

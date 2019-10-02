@@ -19,7 +19,7 @@ int					main(int argc, char **argv)
 {
 	t_block			*stack_a;
 	t_block			*stack_b;
-
+	
 	if (argc > 1)
 	{
 		if (argc == 2)
@@ -34,6 +34,13 @@ int					main(int argc, char **argv)
 					loop_stack_1(&stack_a, &stack_b);
 				while (stack_b != NULL)
 					sorted_stacks(&stack_a, &stack_b);
+				while (stack_a->next != NULL)
+				{
+					ft_putnbr(stack_a->data);
+					ft_putchar(' ');
+					stack_a = stack_a->next;
+				}
+				ft_putnbr(stack_a->data);
 			}
 			else
 			{
@@ -77,12 +84,16 @@ void				sorted_stacks(t_block **stack_a, t_block **stack_b)
 	long			big;
 	big = big_number(*stack_b);
 
-	if (is_sorted_b(*stack_b) == 0 && is_sorted(*stack_a) == 0)
+	if (is_sorted_b(*stack_b) == 0 && (*stack_b)->data == big)
 	{
 		push(&(*stack_b), &(*stack_a));
 		ft_putendl("pa");
 	}
-
+	if (is_sorted(*stack_a) == 1)
+	{
+		swap_data(&(*stack_a));
+		ft_putendl("sa");
+	}
 	/*if (is_sorted(*stack_a) == 0 && is_sorted_b(*stack_b) == 0)
 	{
 		push(&(*stack_b), &(*stack_a));
