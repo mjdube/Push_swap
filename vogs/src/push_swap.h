@@ -45,7 +45,7 @@ int					dup_nums(t_block *stack);
 int					compare(long num1, long num2);
 int					is_sorted(t_block *stack);
 long         		small_number(t_block *stack);
-int         		top_bottom(t_block *stack, long long small, unsigned int split);
+int         		top_bottom(t_block *stack, long num, unsigned int split);
 long         		big_number(t_block *stack_a);
 int					int_max(t_block *stack);
 int					is_sorted_b(t_block *stack);

@@ -45,34 +45,4 @@ void        loop_stack_2(t_block **stack_a, t_block **stack_b)
             ft_putendl("rrb");
         }
     }
-    //if (is_sorted(*stack_a) == 0 && is_sorted_b(*stack_b))
-      //  loop_stack_1(&(*stack_a), &(*stack_b));
-    /*
-    unsigned int split;
-    t_block *lst;
-    int small;
-    int temp;
-
-    lst = *stack_a;
-    small = small_number(*stack_a);
-    while (lst != NULL)
-    {
-        if (small >= lst->data && lst->data <= small + range - 1)
-        {
-            temp = lst->data;
-            if (small >= (*stack_a)->data && (*stack_a)->data <= small + range)
-            {
-                push(&(*stack_a), &(*stack_b));
-                ft_putendl("pb");
-                lst = *stack_a;
-            }
-            else if (!(small >= (*stack_a)->data && (*stack_a)->data <= small + range))
-            {
-                split = len / 2;
-                more_nums(&(*stack_a), temp, split);
-            }
-        }
-        else 
-            lst = lst->next;
-    }*/
 }
