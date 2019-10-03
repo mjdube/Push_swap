@@ -50,9 +50,6 @@ void				push_swap(t_block **stack_a, t_block **stack_b)
 void				sorted_stacks(t_block **stack_a, t_block **stack_b)
 {
 	long			big;
-    int             rb;
-    int             rrb;
-
 
 	big = big_number(*stack_b);
 	if (is_sorted_b(*stack_b) == 0)
@@ -71,21 +68,6 @@ void				sorted_stacks(t_block **stack_a, t_block **stack_b)
 	if (is_sorted_b(*stack_b) > 0)
 	{
 		if (is_sorted_b(*stack_b) >= 2 && (*stack_b)->data == big)
-    	{
-			rb = is_sorted_b(*stack_b);
-			rrb = is_sorted_b(*stack_b);
-			while (--rb)
-			{
-            	rotate_normal(&(*stack_b));
-            	ft_putendl("rb");
-			}
-        	swap_data(&(*stack_b));
-        	ft_putendl("sb");
-        	while (--rrb)
-        	{
-            	rotate_reverse(&(*stack_b));
-            	ft_putendl("rrb");
-        	}
-    	}
+			rb_sb_rrb(&(*stack_b));
 	}
 }

@@ -56,4 +56,6 @@ void				loop_stack(t_block **stack_a, t_block **stack_b);
 void        		three_nums(t_block **stack_a);
 void				more_nums(t_block **stack_a, long long small, unsigned int split);
 void				push_swap(t_block **stack_a, t_block **stack_b);
+void				rb_sb_rrb(t_block **stack);
+
 #endif

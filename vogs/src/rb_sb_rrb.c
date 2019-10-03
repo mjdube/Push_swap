@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   loop_stack_2.c                                     :+:      :+:    :+:   */
+/*   rb_sb_rrb.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdube <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/13 11:11:57 by mdube             #+#    #+#             */
-/*   Updated: 2019/09/13 11:11:59 by mdube            ###   ########.fr       */
+/*   Created: 2019/10/03 12:18:37 by mdube             #+#    #+#             */
+/*   Updated: 2019/10/03 12:18:54 by mdube            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void        loop_stack_2(t_block **stack_a, t_block **stack_b)
+void        rb_sb_rrb(t_block **stack)
 {
-    long            num;
-    unsigned int    len;
+    int     rb;
+    int     rrb;
 
-    len = list_length((*stack_b));
-    num = big_number(*stack_b);
-    if (is_sorted_b(*stack_b) == 0)
-        return ;
-    else if (len >= 2 && is_sorted_b(*stack_b) == 1)
+    rb = is_sorted_b(*stack);
+    rrb = is_sorted_b(*stack);
+    while (--rb)
     {
-        swap_data(*(&stack_b));
-        ft_putendl("sb");
+        rotate_normal(&(*stack));
+        ft_putendl("rb");
     }
-    if (is_sorted_b(*stack_b) >= 2 && (*stack_b)->data == num)
-        rb_sb_rrb(&(*stack_b));
+    swap_data(&(*stack));
+    ft_putendl("sb");
+    while (--rrb)
+    {
+        rotate_reverse(&(*stack));
+        ft_putendl("rrb");
+    }
 }
