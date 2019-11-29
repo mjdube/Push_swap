@@ -1,0 +1,2 @@
+# Push_swap
+My first algorithm project from wethinkcode, which I had to use C language to be able to sort out 3, 5, 100, or 500 numbers. I used linked list data structure to help and to control and sort out my numbers without having segmentation fault. Probably the most frustrating and complicated project at wethinkcode but I enjoyed myself doing this project and still trying to enhance it to be able to sort numbers in a short space of time and I want to be add the use of recursive approach.
