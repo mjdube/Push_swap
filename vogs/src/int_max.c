@@ -12,17 +12,31 @@
 
 #include "push_swap.h"
 
-int         int_max(t_block *stack)
+int		int_max(char *str)
 {
-    t_block *lst;
+	int		len;
+	char	*max;
+	char	*min;
 
-    lst = stack;
-    while (lst != NULL)
-    {
-        if (-2147483648 <= lst->data && lst->data <= 2147483647)
-            lst = lst->next;
-        else
-            return (0);
-    }
-    return (1);
+	len = ft_strlen(str);
+	min = "2147483648";
+	max = "2147483647";
+	str = (len == 11 && *str == '-') ? str + 1 : str;
+	while (*str && len >= 10)
+	{
+		if (len == 10)
+		{
+			if (ft_strncmp(str, max, 1) > 0)
+				return (1);
+			max++;
+		}
+		else
+		{
+			if (ft_strncmp(str, min, 1) > 0)
+				return (1);
+			min++;
+		}
+		str++;
+	}
+	return (0);
 }

@@ -20,36 +20,53 @@ int					main(int argc, char **argv)
 	t_block			*stack_a;
 	t_block			*stack_b;
 
-	if (argc > 1)
+	stack_b = NULL;
+	if (argc >= 2)
 	{
-		if (argc == 2)
-			argv = ft_strsplit(argv[1], ' ');
-		if (ft_checking_numbers(argv))
+		if (argc > 2)
 		{
-			stack_a = create_stack(argc, argv);
-			stack_b = NULL;
-			if (dup_nums(stack_a) == int_max(stack_a))
-				push_swap(&stack_a, &stack_b);
-			else
-				ft_putendl("ERROR");
+			if (ft_checking_numbers(argv + 1) == 0)
+				return (0);
+			else 
+				stack_a = create_stack(argv + 1);
 		}
-		else
-			ft_putendl("ERROR");
+		else 	
+		{
+			argv = ft_strsplit(argv[1], ' ');
+			if (ft_checking_numbers(argv) == 0)
+			{
+				ft_delarray(argv);
+				return (0);
+			}
+			stack_a = create_stack(argv);
+		}
+		push_swap(&stack_a, &stack_b);
+		// ft_delarray(argv);
 	}
 	return (0);
 }
 
 void				push_swap(t_block **stack_a, t_block **stack_b)
 {
-	while (is_sorted(*stack_a) > 0)
-		loop_stack_1(&(*stack_a), &(*stack_b));
-	while (*stack_b != NULL)
-		sorted_stacks(&(*stack_a), &(*stack_b));
+	unsigned int	len_stack;
+
+	len_stack = list_length(*stack_a);
+	if (100 <= len_stack && len_stack <= 250)
+		sort_100(&(*stack_a), &(*stack_b));
+	else if (251 <= len_stack && len_stack <= 500)
+		sort_500(&(*stack_a), &(*stack_b));
+	else 
+	{
+		while (is_sorted(*stack_a) > 0)
+			loop_stack_1(&(*stack_a), &(*stack_b));
+		while (*stack_b != NULL)
+			sorted_stacks(&(*stack_a), &(*stack_b));
+	}
 }
 
 void				sorted_stacks(t_block **stack_a, t_block **stack_b)
 {
-	long			big;
+	int			big;
 
 	big = big_number(*stack_b);
 	if (is_sorted_b(*stack_b) == 0)

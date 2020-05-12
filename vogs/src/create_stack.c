@@ -12,28 +12,71 @@
 
 #include "push_swap.h"
 
-t_block			*create_stack(int argc, char **argv)
+void	empty_stack(t_block **lst)
 {
-	int			i;
-	const char	**numbers;
-	t_block		*head;
-	t_block		*node;
-	t_block		*temp;
+	t_block *temp;
 
-	temp = NULL;
-	head = NULL;
-	node = NULL;
-	numbers = (const char **)argv;
-	i = 1;
-	node = create_node();
-	node->data = ft_atoll(numbers[i++]);
-	head = node;
-	while (--argc > 1)
+	while ((*lst)->next != NULL)
 	{
-		temp = create_node();
-		temp->data = ft_atoll(numbers[i++]);
-		node->next = temp;
-		node = node->next;
+		temp = *lst;
+		*lst = (*lst)->next;
+		free(temp);
 	}
-	return (head);
+	// free(temp);
+}
+
+static void	rest_of_node(t_block **list, char *str)
+{
+	t_block	*node;
+	t_block	*lst;
+
+	lst = *list;
+	if (!(node = (t_block *)malloc(sizeof(t_block))))
+		return ;
+	node->data = ft_atoi(str);
+	node->next = NULL;
+	while (lst->next)
+		lst = lst->next;
+	lst->next = node;
+	node = NULL;
+}
+
+static void	head_node(t_block **list, char *str)
+{
+	char	**arr;
+	int		i;
+
+	i = 0;
+	arr = ft_strsplit(str, ' ');
+	if (!*list)
+	{
+		if (!(*list = (t_block *)malloc(sizeof(t_block))) || !arr)
+			return ;
+		(*list)->data = ft_atoi(arr[i++]);
+		(*list)->next = NULL;
+	}
+	while (arr[i])
+		rest_of_node(list, arr[i++]);
+	ft_delarray(arr);
+}
+
+t_block			*create_stack(char **arr)
+{
+	t_block		*list;
+	int			i;
+
+	i = 0;
+	if (!(list = (t_block *)malloc(sizeof(t_block))) || !arr)
+		return (NULL);
+	list->data = ft_atoi(arr[i++]);
+	list->next = NULL;
+	while (arr[i])
+	{
+		if (num_of_words(arr[i]) > 1)
+			head_node(&list, arr[i]);
+		else
+			rest_of_node(&list, arr[i]);
+		i++;
+	}
+	return (list);
 }

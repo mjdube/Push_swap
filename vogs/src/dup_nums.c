@@ -12,23 +12,16 @@
 
 #include "push_swap.h"
 
-int					dup_nums(t_block *stack)
+int		dup_nums(char **argv, char *to_find, int pos)
 {
-	t_block			*search;
-	t_block			*find;
+	int	i;
 
-	search = stack;
-	while (search != NULL)
+	i = 0;
+	while (argv[i])
 	{
-		find = search->next;
-		while (find != NULL)
-		{
-			if (search->data != find->data)
-				find = find->next;
-			else if (search->data == find->data)
-				return (0);
-		}
-		search = search->next;
+		if (ft_strcmp(argv[i], to_find) == 0 && i != pos)
+			return (1);
+		i++;
 	}
-	return (1);
+	return (0);
 }

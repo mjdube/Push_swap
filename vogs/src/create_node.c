@@ -16,7 +16,8 @@ t_block		*create_node(void)
 {
 	t_block	*node;
 
-	node = (t_block*)ft_memalloc(sizeof(t_block));
+	node = NULL;
+	node = (t_block*)malloc(sizeof(t_block));
 	node->data = 0;
 	node->next = NULL;
 	return (node);

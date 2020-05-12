@@ -45,6 +45,7 @@ void			ft_putstr(const char *str);
 void			ft_putstr_fd(const char *str, int fd);
 void			ft_putnbr(int n);
 void			ft_putnbr_fd(int n, int fd);
+void            ft_swap(int *a, int *b);
 
 size_t			ft_strlen(const char *s);
 char			*ft_strcat(char *s1, const char *s2);
@@ -80,6 +81,8 @@ int				ft_toupper(int c);
 int				ft_isspace(int c);
 
 int				ft_abs(int x);
+
+void	        ft_delarray(char **array);
 
 int				get_next_line(const int fd, char **line);
 #endif

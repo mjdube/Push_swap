@@ -24,7 +24,6 @@ int				is_sorted(t_block *stack)
 		return (0);
 	while (lst->next != NULL)
 	{
-
 		if (compare(lst->data, lst->next->data) == 0)
 		{	
 			lst = lst->next;

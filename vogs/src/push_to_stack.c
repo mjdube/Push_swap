@@ -12,14 +12,16 @@
 
 #include "push_swap.h"
 
-t_block		*push_to_stack(long number, t_block *stack)
+t_block		*push_to_stack(int number, t_block *stack)
 {
 	t_block	*temp;
 
+	temp = NULL;
 	if (stack == NULL)
 	{
 		temp = create_node();
 		temp->data = number;
+		temp->next = NULL;
 		return (temp);
 	}
 	temp = create_node();

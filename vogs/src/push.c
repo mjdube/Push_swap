@@ -14,9 +14,22 @@
 
 void			push(t_block **lstsrc, t_block **lstdst)
 {
-	long		num;
+	t_block *temp;
 
-	num = pop_number(*lstsrc);
-	*lstdst = push_to_stack(num, *lstdst);
-	*lstsrc = push_list(*lstsrc);
+	if ((*lstsrc) == NULL)
+		return ;
+	temp = (*lstsrc)->next;
+	if (*lstdst == NULL)
+	{
+		(*lstsrc)->next = NULL;
+		*lstdst = *lstsrc;
+		*lstsrc = temp;
+	}
+	else
+	{
+		(*lstsrc)->next = *lstdst;
+		*lstdst = *lstsrc;
+		*lstsrc = temp;
+	}
+	// free(temp);
 }
