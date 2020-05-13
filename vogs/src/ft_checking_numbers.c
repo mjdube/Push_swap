@@ -82,7 +82,10 @@ int		ft_checking_numbers(char **argv)
 			if (check_str(argv[i]) == 0)
 				return (0);
 			if (dup_nums(argv, argv[i], i))
+			{
+				ft_putendl("Error");
 				return (0);
+			}
 			i++;
 		}
 	}
